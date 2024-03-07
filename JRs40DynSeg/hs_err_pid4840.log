@@ -1,0 +1,181 @@
+#
+# An unexpected error has been detected by HotSpot Virtual Machine:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6d3e1472, pid=4840, tid=5348
+#
+# Java VM: Java HotSpot(TM) Client VM (1.5.0_03-b07 mixed mode)
+# Problematic frame:
+# C  [JdbcOdbc.dll+0x1472]
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00358c10):  JavaThread "main" [_thread_in_native, id=5348]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00a5d000
+
+Registers:
+EAX=0x00a5cc98, EBX=0x00358ccc, ECX=0x00000023, EDX=0x000003f4
+ESP=0x0006f884, EBP=0x0006f8a4, ESI=0x00a5d000, EDI=0x00a5cc00
+EIP=0x6d3e1472, EFLAGS=0x00010202
+
+Top of Stack: (sp=0x0006f884)
+0x0006f884:   00358c10 06bf6eb0 06bf6eb0 0adf3fb8
+0x0006f894:   00a38100 0adeeca8 0adf3f68 00a5c898
+0x0006f8a4:   0006f8f4 00a89f65 00a5c898 0006f928
+0x0006f8b4:   0afc28e0 00000000 0000000c 0006f918
+0x0006f8c4:   00000001 000003f4 00000000 0006f908
+0x0006f8d4:   0006f904 0006f8d8 00000000 0006f928
+0x0006f8e4:   06bfad90 00000000 06bf6eb0 0006f904
+0x0006f8f4:   0006f948 00a82923 00000000 00a87329 
+
+Instructions: (pc=0x6d3e1472)
+0x6d3e1462:   00 00 85 c0 74 19 8b 4d 24 8b f0 8b d1 c1 e9 02
+0x6d3e1472:   f3 a5 8b ca 83 e1 03 f3 a4 8b 75 f4 8b 7d 08 8b 
+
+
+Stack: [0x00030000,0x00070000),  sp=0x0006f884,  free space=254k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [JdbcOdbc.dll+0x1472]
+j  sun.jdbc.odbc.JdbcOdbc.bindColBinary(JI[Ljava/lang/Object;[BI[B[J[B)V+0
+j  sun.jdbc.odbc.JdbcOdbc.SQLBindColBinary(JI[Ljava/lang/Object;[BI[B[J)V+65
+j  sun.jdbc.odbc.JdbcOdbcResultSet.bindBinaryCol(I[Ljava/lang/Object;[BI)V+62
+j  sun.jdbc.odbc.JdbcOdbcResultSet.bindCol(II)V+478
+j  sun.jdbc.odbc.JdbcOdbcResultSet.insertRow()V+29
+j  com.siteco.JRs40DynSeg.CBinary.WriteTable(Ljava/lang/String;)Z+1648
+j  com.siteco.JRs40DynSeg.test.main([Ljava/lang/String;)V+49
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x818b8]
+V  [jvm.dll+0xd431d]
+V  [jvm.dll+0x81789]
+V  [jvm.dll+0x88808]
+C  [javaw.exe+0x14c0]
+C  [javaw.exe+0x313d]
+C  [kernel32.dll+0x16fd7]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.jdbc.odbc.JdbcOdbc.bindColBinary(JI[Ljava/lang/Object;[BI[B[J[B)V+0
+j  sun.jdbc.odbc.JdbcOdbc.SQLBindColBinary(JI[Ljava/lang/Object;[BI[B[J)V+65
+j  sun.jdbc.odbc.JdbcOdbcResultSet.bindBinaryCol(I[Ljava/lang/Object;[BI)V+62
+j  sun.jdbc.odbc.JdbcOdbcResultSet.bindCol(II)V+478
+j  sun.jdbc.odbc.JdbcOdbcResultSet.insertRow()V+29
+j  com.siteco.JRs40DynSeg.CBinary.WriteTable(Ljava/lang/String;)Z+1648
+j  com.siteco.JRs40DynSeg.test.main([Ljava/lang/String;)V+49
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00a4f178 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=5460]
+  0x00a4d8b8 JavaThread "CompilerThread0" daemon [_thread_blocked, id=2368]
+  0x00a4c540 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=5040]
+  0x00a4ac90 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=3540]
+  0x00a498e0 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=3092]
+  0x00a47fc8 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=4712]
+  0x00a39918 JavaThread "Finalizer" daemon [_thread_blocked, id=4468]
+  0x00a38488 JavaThread "Reference Handler" daemon [_thread_blocked, id=5636]
+=>0x00358c10 JavaThread "main" [_thread_in_native, id=5348]
+
+Other Threads:
+  0x00a35ab8 VMThread [id=4944]
+  0x00a42478 WatcherThread [id=3616]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 576K, used 463K [0x02a80000, 0x02b20000, 0x02f60000)
+  eden space 512K,  86% used [0x02a80000, 0x02aef340, 0x02b00000)
+  from space 64K,  29% used [0x02b10000, 0x02b14ba0, 0x02b20000)
+  to   space 64K,   0% used [0x02b00000, 0x02b00000, 0x02b10000)
+ tenured generation   total 1408K, used 725K [0x02f60000, 0x030c0000, 0x06a80000)
+   the space 1408K,  51% used [0x02f60000, 0x03015448, 0x03015600, 0x030c0000)
+ compacting perm gen  total 8192K, used 2052K [0x06a80000, 0x07280000, 0x0aa80000)
+   the space 8192K,  25% used [0x06a80000, 0x06c811f8, 0x06c81200, 0x07280000)
+No shared spaces configured.
+
+Dynamic libraries:
+0x00400000 - 0x0040c000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\bin\javaw.exe
+0x7c910000 - 0x7c9c6000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c8ff000 	C:\WINDOWS\system32\kernel32.dll
+0x77f40000 - 0x77feb000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77da0000 - 0x77e31000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77d10000 - 0x77da0000 	C:\WINDOWS\system32\USER32.dll
+0x77e40000 - 0x77e87000 	C:\WINDOWS\system32\GDI32.dll
+0x77be0000 - 0x77c38000 	C:\WINDOWS\system32\MSVCRT.dll
+0x6d6b0000 - 0x6d836000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\jre\bin\client\jvm.dll
+0x76b00000 - 0x76b2e000 	C:\WINDOWS\system32\WINMM.dll
+0x6d2f0000 - 0x6d2f8000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\jre\bin\hpi.dll
+0x76bb0000 - 0x76bbb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d3f0000 - 0x6d425000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\jre\bin\jdwp.dll
+0x6d680000 - 0x6d68c000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\jre\bin\verify.dll
+0x6d370000 - 0x6d38d000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\jre\bin\java.dll
+0x6d6a0000 - 0x6d6af000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\jre\bin\zip.dll
+0x6d290000 - 0x6d297000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\jre\bin\dt_socket.dll
+0x71a30000 - 0x71a47000 	C:\WINDOWS\system32\WS2_32.dll
+0x71a20000 - 0x71a28000 	C:\WINDOWS\system32\WS2HELP.dll
+0x719d0000 - 0x71a10000 	C:\WINDOWS\System32\mswsock.dll
+0x76ee0000 - 0x76f07000 	C:\WINDOWS\system32\DNSAPI.dll
+0x76f70000 - 0x76f78000 	C:\WINDOWS\System32\winrnr.dll
+0x76f20000 - 0x76f4d000 	C:\WINDOWS\system32\WLDAP32.dll
+0x75280000 - 0x7529e000 	C:\WINDOWS\system32\wshbth.dll
+0x778f0000 - 0x779e7000 	C:\WINDOWS\system32\SETUPAPI.dll
+0x76f80000 - 0x76f86000 	C:\WINDOWS\system32\rasadhlp.dll
+0x66750000 - 0x667a8000 	C:\WINDOWS\system32\hnetcfg.dll
+0x71a10000 - 0x71a18000 	C:\WINDOWS\System32\wshtcpip.dll
+0x6d3e0000 - 0x6d3ed000 	R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\jre\bin\JdbcOdbc.dll
+0x745e0000 - 0x7461d000 	C:\WINDOWS\system32\ODBC32.dll
+0x5d4d0000 - 0x5d56a000 	C:\WINDOWS\system32\COMCTL32.dll
+0x7c9d0000 - 0x7d1ec000 	C:\WINDOWS\system32\SHELL32.dll
+0x77e90000 - 0x77f06000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x76360000 - 0x763aa000 	C:\WINDOWS\system32\comdlg32.dll
+0x773a0000 - 0x774a3000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2982_x-ww_ac3f9c03\comctl32.dll
+0x20000000 - 0x20018000 	C:\WINDOWS\system32\odbcint.dll
+0x4e4b0000 - 0x4e51c000 	C:\WINDOWS\System32\sqlsrv32.dll
+0x5c5d0000 - 0x5c5fd000 	C:\WINDOWS\System32\SQLUNIRL.dll
+0x72f70000 - 0x72f96000 	C:\WINDOWS\System32\WINSPOOL.DRV
+0x77bd0000 - 0x77bd8000 	C:\WINDOWS\system32\VERSION.dll
+0x770f0000 - 0x7717c000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x774b0000 - 0x775ed000 	C:\WINDOWS\system32\ole32.dll
+0x5bc70000 - 0x5bcc4000 	C:\WINDOWS\system32\NETAPI32.dll
+0x758f0000 - 0x758f8000 	C:\WINDOWS\system32\NDDEAPI.DLL
+0x1fa30000 - 0x1fa48000 	C:\WINDOWS\System32\sqlsrv32.rll
+0x77f10000 - 0x77f21000 	C:\WINDOWS\system32\Secur32.dll
+0x62190000 - 0x621ab000 	C:\WINDOWS\system32\odbccp32.dll
+0x6da10000 - 0x6da2b000 	C:\WINDOWS\system32\DBNETLIB.DLL
+0x71a50000 - 0x71a5a000 	C:\WINDOWS\system32\WSOCK32.dll
+0x71f10000 - 0x71f14000 	C:\WINDOWS\system32\security.dll
+0x77c40000 - 0x77c63000 	C:\WINDOWS\system32\msv1_0.dll
+0x76d20000 - 0x76d39000 	C:\WINDOWS\system32\iphlpapi.dll
+0x76760000 - 0x76773000 	C:\WINDOWS\system32\ntdsapi.dll
+0x77a50000 - 0x77ae5000 	C:\WINDOWS\system32\crypt32.dll
+0x77af0000 - 0x77b02000 	C:\WINDOWS\system32\MSASN1.dll
+0x767b0000 - 0x767d7000 	C:\WINDOWS\system32\schannel.dll
+0x76980000 - 0x76a34000 	C:\WINDOWS\system32\USERENV.dll
+0x0ffd0000 - 0x0fff8000 	C:\WINDOWS\system32\rsaenh.dll
+0x68100000 - 0x68124000 	C:\WINDOWS\system32\dssenh.dll
+
+VM Arguments:
+jvm_args: -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=wks-hurricane:1647,suspend=y
+java_command: com.siteco.JRs40DynSeg.test
+
+Environment Variables:
+JAVA_HOME=W:\Programmi\j2sdk1.4.2_05
+CLASSPATH=C:\Programmi\Java\jre1.5.0_06\lib\ext\QTJava.zip
+PATH=.;R:\ivan\programmi\Borland\JBuilder2006\bin;R:\ivan\programmi\Borland\JBuilder2006\jdk1.5\bin;C:\Oracle\10.1.0\Client\bin;V:\Windows Resource Kits\;C:\Oracle\10.1.0\Client\jre\1.4.2\bin\client;C:\Oracle\10.1.0\Client\jre\1.4.2\bin;C:\oracle\ora81\bin;C:\Programmi\Oracle\jre\1.1.7\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Programmi\ATI Technologies\ATI Control Panel;C:\Programmi\Sybase\SQL Anywhere 7\win32;C:\Programmi\Microsoft SQL Server\80\Tools\BINN;C:\PROGRA~1\FILECO~1\AUTODE~1\GIS\IMPORT~1\1.0;C:\W105\binnt;C:\W105\binw;C:\Programmi\Sonic\MyDVD;C:\PROGRA~1\FILECO~1\AUTODE~1\GIS\IMPORT~1\2.0;C:\Programmi\FME2004\;C:\Programmi\File comuni\Roxio Shared\DLLShared;V:\test\MVTec\HALCON\bin\i586-nt4;V:\test\MVTec\HALCON\FLEXlm\i586-nt4;C:\ArcGIS\ArcSDE\bin;V:\test\ADCIS-~1\Aphelion\Program;C:\Programmi\Intuwave\Shared\mRouterRuntime;C:\Programmi\UltraEdit;C:\Programmi\Microsoft SQL Server\90\Tools\binn\;C:\Programmi\Microsoft SQL Server\80\Tools\Binn\;C:\Programmi\Microsoft SQL Server\90\DTS\Binn\;C:\Programmi\Microsoft SQL Server\90\Tools\Binn\VSShell\Common7\IDE\;C:\Programmi\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\;C:\Programmi\File comuni\Autodesk Shared\;C:\Programmi\QuickTime\QTSystem\;R:\ivan\Programmi\MySQL\MySQL Server 5.0\bin;C:\Programmi\CVSNT\;R:\ivan\programmi\Borland\JBuilder2006\debug\sa;R:\ivan\programmi\Borland\JBuilder2006\lib
+USERNAME=ivan
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 15 Model 2 Stepping 7, GenuineIntel
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 2
+
+CPU:total 2 family 15, cmov, cx8, fxsr, mmx, sse, sse2, ht
+
+Memory: 4k page, physical 1047544k(195536k free), swap 2522328k(1595844k free)
+
+vm_info: Java HotSpot(TM) Client VM (1.5.0_03-b07) for windows-x86, built on Apr 13 2005 02:07:01 by "java_re" with MS VC++ 6.0
+

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebservicesDesigner
+    xmlns="http://www.borland.com/jbuilder/webservices/axis/designer/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    autoScanAndExportSessionBeans="false" isLiveSyncExportEnabled="true"
+    preserveDeploymentState="false" isLiveSyncImportEnabled="false"
+    autoScanAndExportMessageDrivenBeans="false"
+    autoValidateOnBuild="true" addWSDLToProjectOnBuild="true"
+    autoRefreshImportWsdl="false" autoRefreshImportUDDIService="false"
+    defaultClientGenerationWhileExport="true"
+    defaultServerGenerationWhileImport="false" enabled="true" xsi:type="webserviceDesigner">
+    <import/>
+    <export>
+        <java2wsdl autoValidateOnBuild="true" enabled="true"
+            displayName="SitecoWS" internalId="1140158361261"
+            isLiveSyncExportEnabled="false"
+            bindingname="SitecoWSSoapBinding"
+            classname="com.siteco.SitecoWS"
+            extraclasses="com.siteco.Coord,com.siteco.GenEnvelope,com.siteco.GenMap,com.siteco.MapURLs,com.siteco.Particella,com.siteco.Progressiva,com.siteco.GenLayer,com.siteco.ArrayOfGenLayer,com.siteco.ArrayOfInt,com.siteco.ArrayOfObjsInLayer"
+            location="http://213.209.218.211.8080/SitecoWS/services/SitecoWS"
+            namespace="http://siteco.com" output="SitecoWS.wsdl"
+            porttypename="SitecoWS" serviceelementname="SitecoWSService"
+            serviceportname="SitecoWS"
+            stopclasses="javax.* java.* org.apache.axis.AxisFault "
+            style="wrapped" typemappingversion="1.1" use="literal"
+            useinheritedmethods="false" deployscope="Request" soapaction="OPERATION">
+            <mapping
+                namespace="http://envelope.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.envelope"/>
+            <mapping
+                namespace="http://query.layer.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.layer.query"/>
+            <mapping
+                namespace="http://workspace.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.workspace"/>
+            <mapping
+                namespace="http://acetate.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.acetate"/>
+            <mapping
+                namespace="http://layer.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.layer"/>
+            <mapping namespace="http://map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map"/>
+            <mapping
+                namespace="http://geocode.layer.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.layer.geocode"/>
+            <mapping
+                namespace="http://output.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.output"/>
+            <mapping
+                namespace="http://projection.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.projection"/>
+            <generatedFile file="../src/com/siteco/generated/NormProvinciaRecord.java"/>
+            <generatedFile file="../src/com/siteco/generated/SitecoWSService.java"/>
+            <generatedFile file="../src/com/siteco/generated/GenLayer.java"/>
+            <generatedFile file="../src/com/siteco/generated/ObjsInLayer3.java"/>
+            <generatedFile file="../src/com/siteco/generated/ObjsInLayer2.java"/>
+            <generatedFile file="../src/com/siteco/generated/Percorso.java"/>
+            <generatedFile file="../src/com/siteco/generated/Progressiva.java"/>
+            <generatedFile file="../src/com/siteco/generated/Coord.java"/>
+            <generatedFile file="../src/com/siteco/generated/Simbologia.java"/>
+            <generatedFile file="../src/com/siteco/generated/NormIndirizzo2Record.java"/>
+            <generatedFile file="../src/com/siteco/generated/SitecoWSServiceLocator.java"/>
+            <generatedFile file="../src/com/siteco/generated/IdObj.java"/>
+            <generatedFile file="../src/com/siteco/generated/MapURLs.java"/>
+            <generatedFile file="../src/com/siteco/generated/GenEnvelope.java"/>
+            <generatedFile file="../src/com/siteco/generated/GenMap.java"/>
+            <generatedFile file="../src/com/siteco/generated/SitecoWSSoapBindingStub.java"/>
+            <generatedFile file="../src/com/siteco/generated/NormIndirizzo1Record.java"/>
+            <generatedFile file="../src/com/siteco/generated/SitecoWS.java"/>
+            <generatedFile file="../src/com/siteco/generated/NormIndirizzoRecord.java"/>
+            <generatedFile file="../src/com/siteco/generated/NormStradarioRecord.java"/>
+            <generatedFile file="../src/com/siteco/generated/NormComune2Record.java"/>
+            <generatedFile file="../src/com/siteco/generated/NormComune1Record.java"/>
+            <generatedFile file="../src/com/siteco/generated/NormIncrocioRecord.java"/>
+            <generatedFile file="../src/com/siteco/generated/Particella.java"/>
+            <generatedFile file="../src/com/siteco/generated/ObjsInLayer.java"/>
+            <generatedFile file="../src/com/siteco/generated/Localizzazione.java"/>
+            <generatedFile file="../src/com/siteco/generated/Simbolo.java"/>
+            <generatedFile file="../src/com/siteco/generated/PtPrjM.java"/>
+            <generatedFile file="../src/com/siteco/generated/NormInfoEntitaStradarioRecord.java"/>
+            <clientSettings autoValidateOnBuild="true" enabled="true"
+                isLiveSyncImportEnabled="false" all="true" debug="false"
+                deployscope="Request" helpergen="false"
+                noimports="false" output="src" serverside="false"
+                skeletondeploy="false" testcase="false"
+                testcaseoverwrite="false" timeout="0"
+                typemappingversion="1.1" url="SitecoWS.wsdl"
+                verbose="false" wrapped="true" packageforall="false" overWriteTypes="true">
+                <mapping
+                    namespace="http://layer.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.layer.generated"/>
+                <mapping
+                    namespace="http://map.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.map.generated"/>
+                <mapping
+                    namespace="http://projection.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.projection.generated"/>
+                <mapping
+                    namespace="http://layer.map.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.map.layer.generated"/>
+                <mapping
+                    namespace="http://envelope.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.envelope.generated"/>
+                <mapping
+                    namespace="http://output.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.output.generated"/>
+                <mapping
+                    namespace="http://envelope.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.envelope.generated"/>
+                <mapping
+                    namespace="http://output.map.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.map.output.generated"/>
+                <mapping
+                    namespace="http://query.layer.map.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.map.layer.query.generated"/>
+                <mapping
+                    namespace="http://geocode.layer.map.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.map.layer.geocode.generated"/>
+                <mapping
+                    namespace="http://projection.map.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.map.projection.generated"/>
+                <mapping
+                    namespace="http://acetate.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.acetate.generated"/>
+                <mapping
+                    namespace="http://workspace.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.workspace.generated"/>
+                <mapping
+                    namespace="http://projection.map.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.map.projection.generated"/>
+                <mapping
+                    namespace="http://map.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.map.generated"/>
+                <mapping
+                    namespace="http://geocode.layer.map.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.map.layer.geocode.generated"/>
+                <mapping
+                    namespace="http://map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.generated"/>
+                <mapping namespace="http://siteco.com" packagename="com.siteco.generated"/>
+                <mapping
+                    namespace="http://output.map.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.map.output.generated"/>
+                <mapping
+                    namespace="http://geocode.layer.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.layer.geocode.generated"/>
+                <mapping
+                    namespace="http://workspace.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.workspace.generated"/>
+                <mapping
+                    namespace="http://envelope.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.envelope.generated"/>
+                <mapping
+                    namespace="http://acetate.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.acetate.generated"/>
+                <mapping
+                    namespace="http://query.layer.map.model.mtier.aims.esri.com" packagename="com.esri.aims.mtier.model.map.layer.query.generated"/>
+                <mapping
+                    namespace="http://acetate.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.acetate.generated"/>
+                <mapping
+                    namespace="http://workspace.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.workspace.generated"/>
+                <mapping
+                    namespace="http://layer.map.model.mtier.aims.esri.com-impl" packagename="com.esri.aims.mtier.model.map.layer.generated"/>
+                <mapping
+                    namespace="http://query.layer.map.model.mtier.aims.esri.com-intf" packagename="com.esri.aims.mtier.model.map.layer.query.generated"/>
+            </clientSettings>
+        </java2wsdl>
+    </export>
+</WebservicesDesigner>

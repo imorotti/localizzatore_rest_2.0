@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Localizzatore-API</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+        <link rel="stylesheet" href="js/OpenLayers/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="js/GeoER/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="js/Localizzatore/theme/default/style.css" type="text/css">
+        <script src="js/JQuery/jquery-1.10.1.min.js"></script>
+        <script src="js/OpenLayers/OpenLayers.js"></script>
+        <script src="js/GeoER/GeoER.js"></script>
+        <script src="js/Localizzatore/Localizzatore.js"></script>
+        <script src="js/Proj4js/lib/proj4js-combined.js"></script>
+        <style type="text/css">
+			/**
+			 * Layout CSS properties
+			 */
+			.rercontainer {
+				font-weight: normal;
+				font-family: 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+			}
+
+			.rercontainer .title {
+				font-size: 110%;
+				color: #FFFFFF;
+				background-color: #CB1D15;
+				margin-bottom: 0.5em;
+				border-bottom: 0px solid white;
+				width: 512px;
+				opacity: 0.8;
+				padding: 5px;
+			}
+
+			.rercontainer .docs {
+				font-size: 80%;
+				width: 512px;
+				text-align: justify;
+			}
+
+			/**
+			 * Map CSS class
+			 */
+			.rermap {
+				width: 625px;
+				height: 350px;
+				border: 1px solid #CB1D15;
+			}
+        </style>
+        <script type="text/javascript">
+            var WGS84 = null;
+            var ED50_UTM32 = null;
+            var MONTE_MARIO = null;
+            var EPSG900000 = null;
+            var mapOpt = null;
+            var wizard_map = null;
+            var localizzatoreBase = 'https://servizigis.regione.emilia-romagna.it/localizzatore_rest/';
+			var normalizzatoreUrl = 'https://servizigis.regione.emilia-romagna.it/normalizzatore';
+            var src = null;
+            var dst = null;
+
+            function init(){   
+                if(typeof String.prototype.trim !== 'function') {
+                String.prototype.trim = function() {
+                        //Your implementation here. Might be worth looking at perf comparison at
+                        //http://blog.stevenlevithan.com/archives/faster-trim-javascript
+                        //
+                        //The most common one is perhaps this:
+                        return this.replace(/^\s+|\s+$/g, ''); 
+                    }
+                }
+                if (!Function.prototype.bind) {
+                Function.prototype.bind = function (oThis) {
+                    if (typeof this !== "function") {
+                    // closest thing possible to the ECMAScript 5 internal IsCallable function
+                    throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+                    }
+
+                    var aArgs = Array.prototype.slice.call(arguments, 1), 
+                        fToBind = this, 
+                        fNOP = function () {},
+                        fBound = function () {
+                        return fToBind.apply(this instanceof fNOP && oThis
+                                                ? this
+                                                : oThis,
+                                            aArgs.concat(Array.prototype.slice.call(arguments)));
+                        };
+
+                        fNOP.prototype = this.prototype;
+                        fBound.prototype = new fNOP();
+
+                        return fBound;
+                    };
+                }
+
+                WGS84 = new OpenLayers.Projection("EPSG:4326");  
+                ED50_UTM32 = new OpenLayers.Projection("EPSG:23032");
+                MONTE_MARIO = new OpenLayers.Projection("EPSG:3003");
+                UTMRER = new OpenLayers.Projection("EPSG:202003");
+                src = new Proj4js.Proj("EPSG:202003");  
+                dst = new Proj4js.Proj("EPSG:202003"); 
+
+                var mapOpt = {
+                    displayProjection: UTMRER
+                }
+                var wizard_map = new OpenLayers.Map("wizard_map", {
+                                            maxExtent: new OpenLayers.Bounds(515784, 847128, 801403, 999008),
+                                            minResolution: 0.1,
+                                            numZoomLevels: 13, 
+                                            projection: new OpenLayers.Projection('EPSG:202003')
+                                    }
+                            );
+
+                var size = new OpenLayers.Size(21,25);
+                var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+                var loadingpanel = new GeoER.Control.LoadingPanel();
+
+                options = {
+                    geocodingUrl: localizzatoreBase + 'js/GeoER-API/Geocoding?',
+                    localizzatoreUrl: localizzatoreBase + 'resources/',
+                    normalizzatoreUrl: normalizzatoreUrl,
+                    normUser: 'inciweb',
+                    normPwd: 'bFHgTK1IwLfztjqL',
+                    //normId: 'inciweb',
+                    idLRS: 'EFBFBDCC8CEFBFBDbKD0B4-EFBFBDJEFBFBDEFBFBD',
+                    idMap: 'iEFBFBDF07EFBFBD7F7DvD2A3sEFBFBD2C16EFBFBD',
+                    sRif: 'UTMRER',
+                    rifGeoCiv: 'PCIV',
+                    hasKm: true,
+                    hasInverseGeoreference: true,
+                    hasCheckComune: false,
+                    hasNumeroStrada: false,
+                    hasLocalita:true,
+                    hasStrada: true,
+                    hasLuoghiNotevoli:true,
+                    provComDisabled: false,
+                    src: src,
+                    dst: dst,
+                    div: document.getElementById('localizzazionePanel'),
+                    resultIcon: new OpenLayers.Icon(localizzatoreBase + 'js/GeoER/img/result-icon.png', size, offset),
+                    searchIcon: new OpenLayers.Icon(localizzatoreBase + 'js/GeoER/img/search-icon.png', size, offset),
+                    loadingPanel: loadingpanel
+                };
+
+                wizard_map.addControl(loadingpanel);
+    
+                var zb = new GeoER.Control.ZoomBox();
+                zb.zoomOnClick = false;
+                var panel = new GeoER.Control.Panel({position: new OpenLayers.Pixel(37,7)});
+                panel.addControls([
+                    new GeoER.Control.Navigation(), 
+                    zb,
+                    new GeoER.Control.ZoomToMaxExtent() 
+                ]);
+
+                nav = new GeoER.Control.NavigationHistory();
+                // parent control must be added to the map
+                wizard_map.addControl(nav);
+                panel.addControls([nav.next, nav.previous]);
+
+                var localizzatoreControl = new Localizzatore.Control.Localizzazione(options);
+                panel.addControls([localizzatoreControl]);
+                panel.defaultControl = localizzatoreControl;
+
+                wizard_map.addControl(panel);
+                //wizard_map.addControl(new GeoER.Control.LayerSwitcher({'ascending':true}));
+                wizard_map.addControl(new OpenLayers.Control.ScaleLine({position: new OpenLayers.Pixel(7,465)})),
+                wizard_map.addControl(new GeoER.Control.MousePosition());
+
+                //layer RER
+                wizard_map.addLayer(new GeoER.Layer.WMS("Civici",'https://servizigis.regione.emilia-romagna.it/wms/dbtr_local?',
+                                                        {layers: 'NCV_Civico', transparent: true},
+                                                        {displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true}));
+                wizard_map.addLayer(new GeoER.Layer.WMS("Toponimi stradali",'https://servizigis.regione.emilia-romagna.it/wms/dbtr_local?',
+                                                        {layers: 'TPS_Toponimo_stradale_comunale', transparent: true},
+                                                        {displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true}));
+                wizard_map.addLayer(new GeoER.Layer.WMS("Estese amministrative",'https://servizigis.regione.emilia-romagna.it/wms/dbtr_local?',
+                                                        {layers: 'STR_PA_Strada_percorso_analitico', transparent: true},
+                                                        {displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true}));
+                wizard_map.addLayer(new GeoER.Layer.WMS("Limiti amministrativi",'https://servizigis.regione.emilia-romagna.it/wms/dbtr_local?',
+                                                        {layers: 'LAM_Limite_amministrativo', transparent: true},
+                                                        {displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true}));
+                wizard_map.addLayer(new GeoER.Layer.WMS("Comuni",'https://servizigis.regione.emilia-romagna.it/wms/dbtr_local?',
+                                                        {layers: 'COM_Comune', transparent: true},
+                                                        {displayInLayerSwitcer: true, isBaseLayer: false, singleTile: true}));
+                wizard_map.addLayer(new GeoER.Layer.WMS("Ortofoto",'https://servizigis.regione.emilia-romagna.it/wms/agea2011_rgb?',
+                                                        {layers: 'Agea2011_RGB', transparent: true},
+                                                        {displayInLayerSwitcer: false, isBaseLayer: true, singleTile: true}));
+
+                wizard_map.addControl(new OpenLayers.Control.LayerSwitcher());
+
+                wizard_map.zoomToMaxExtent();
+            }
+        </script>
+    </head>
+	<body onload="init()">
+		<div class="rercontainer">
+	        <p class="title">Localizzatore-API</p>
+	        <br>
+        	<div id="wizard_map" class="rermap"></div>
+            <div id="localizzazionePanel"></div>
+		</div>	 
+    </body>
+</html>

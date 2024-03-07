@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Localizzatore-API</title>
+        <link rel="stylesheet" href="js/OpenLayers/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="js/GeoER/theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="js/Localizzatore/theme/default/style.css" type="text/css">
+        <script src="js/OpenLayers/OpenLayers.js"></script>
+        <script src="js/GeoER/GeoER.js"></script>
+        <script src="js/Localizzatore/Localizzatore.js"></script>
+        <script src="js/Proj4js/lib/proj4js-combined.js"></script>
+        <style type="text/css">
+			/**
+			 * Layout CSS properties
+			 */
+			.rercontainer {
+				font-weight: normal;
+				font-family: 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+			}
+
+			.rercontainer .title {
+				font-size: 110%;
+				color: #FFFFFF;
+				background-color: #CB1D15;
+				margin-bottom: 0.5em;
+				border-bottom: 0px solid white;
+				width: 512px;
+				opacity: 0.8;
+				padding: 5px;
+			}
+
+			.rercontainer .docs {
+				font-size: 80%;
+				width: 512px;
+				text-align: justify;
+			}
+
+			/**
+			 * Map CSS class
+			 */
+			.rermap {
+				width: 625px;
+				height: 350px;
+				border: 1px solid #CB1D15;
+			}
+        </style>
+        <script type="text/javascript">
+            function init(){   
+				WGS84 = new OpenLayers.Projection("EPSG:4326");
+				ED50_UTM32 = new OpenLayers.Projection("EPSG:23032");
+				MONTE_MARIO = new OpenLayers.Projection("EPSG:3003");
+				UTMRER = new OpenLayers.Projection("EPSG:900000");
+				src = new Proj4js.Proj("EPSG:3003");  
+				dst = new Proj4js.Proj("EPSG:4326"); 
+				
+				mapOpt = {
+					displayProjection: MONTE_MARIO
+				}
+				//wizard_map = new Localizzatore.RERMap("wizard_map", mapOpt);
+				wizard_map = new Localizzatore.LiguriaMap("wizard_map", mapOpt);
+				
+				var size = new OpenLayers.Size(21,25);
+				var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+				options = {
+					geocodingUrl: 'http://sicurstra.regione.liguria.it:8080/localizzatore/js/GeoER-API/Geocoding?',
+					localizzatoreUrl: 'http://sicurstra.regione.liguria.it:8080/localizzatore/resources/',
+					normalizzatoreUrl: 'http://sicurstra.regione.liguria.it:8080/SoapDispenser/',
+					idLRS: 'KGC38Abl21C3BDE284A2E282ACC384EFBFBD08-2B259',
+					sRif: 'GBO',
+					rifGeoCiv: 'ECIV',
+					hasKm: false,
+					src: src,
+					dst: dst,
+					div: document.getElementById('localizzazionePanel'),
+					resultIcon: new OpenLayers.Icon('http://sicurstra.regione.liguria.it:8080/localizzatore_rest/js/GeoER/img/result-icon.png', size, offset)
+				};
+
+				var zb = new GeoER.Control.ZoomBox();
+				zb.zoomOnClick = false;
+				var panel = new GeoER.Control.Panel({defaultControl: zb, position: new OpenLayers.Pixel(30,1)});
+				panel.addControls([
+					new GeoER.Control.Navigation(), 
+					zb,
+					new GeoER.Control.ZoomToMaxExtent() 
+				]);
+
+				nav = new GeoER.Control.NavigationHistory();
+				// parent control must be added to the map
+				wizard_map.addControl(nav);
+				panel.addControls([nav.next, nav.previous]);
+
+				var localizzatoreControl = new Localizzatore.Control.Localizzazione(options);
+				panel.addControls([localizzatoreControl]);
+				wizard_map.addControl(panel);
+				wizard_map.addControl(new OpenLayers.Control.ScaleLine({position: new OpenLayers.Pixel(7,315)})),
+				wizard_map.addControl(new GeoER.Control.MousePosition());   
+				wizard_map.addControl(new GeoER.Control.OverviewMap());
+				
+				//layer Liguria
+				var sfondo_10000 = new GeoER.Layer.WMS("Sfondo 10000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L671', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true});  
+				var sfondo_1280000 = new GeoER.Layer.WMS("Sfondo 1280000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L664', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true});
+				var sfondo_160000 = new GeoER.Layer.WMS("Sfondo 160000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L667', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true});  
+				var sfondo_20000 = new GeoER.Layer.WMS("Sfondo 20000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L670', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true});  
+				var sfondo_2560000 = new GeoER.Layer.WMS("Sfondo 2560000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L663', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true}); 
+				var sfondo_320000 = new GeoER.Layer.WMS("Sfondo 320000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L666', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true});   
+				var sfondo_40000_1 = new GeoER.Layer.WMS("Sfondo1 40000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L669', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true});  
+				var sfondo_40000_2 = new GeoER.Layer.WMS("Sfondo2 40000 ",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L909', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true}); 
+				var sfondo_640000 = new GeoER.Layer.WMS("Sfondo 640000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L665', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true});    
+				var sfondo_80000 = new GeoER.Layer.WMS("Sfondo 80000",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\CONFINI\\931.map&service=WMS',
+													{layers: 'L668', transparent: true},
+													{visibility:false, displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true}); 
+
+				var strade = new GeoER.Layer.WMS("Strade",'http://www.cartografiarl.regione.liguria.it/MapServer/mapserv.exe?MAP=E:\\Progetti\\mapfiles\\repertoriocartografico\\TRASPORTI\\624.map&service=WMS',
+													{layers: 'C624', transparent: true},
+													{displayInLayerSwitcher: true, isBaseLayer: false, singleTile: true});
+
+				wizard_map.addLayer(strade);
+				wizard_map.addLayer(sfondo_10000);
+				wizard_map.addLayer(sfondo_1280000);
+				wizard_map.addLayer(sfondo_160000);
+				wizard_map.addLayer(sfondo_20000);
+				wizard_map.addLayer(sfondo_2560000);
+				wizard_map.addLayer(sfondo_320000);
+				wizard_map.addLayer(sfondo_40000_1);
+				wizard_map.addLayer(sfondo_40000_2);
+				wizard_map.addLayer(sfondo_640000);
+				wizard_map.addLayer(sfondo_80000);
+														
+				var groupSfondi = [sfondo_10000, sfondo_1280000, sfondo_160000, sfondo_20000, sfondo_2560000, sfondo_320000, sfondo_40000_1, sfondo_40000_2, sfondo_640000, sfondo_80000];
+				for (var i=0; i < groupSfondi.length; i++) { 
+					groupSfondi[i].group = 'Sfondi'; 
+				};
+				
+				wizard_map.addControl(new OpenLayers.Control.LayerSwitcherGroups());
+			}
+	
+        </script>
+    </head>
+	<body onload="init()">
+		<div class="rercontainer">
+	        <p class="title">Localizzatore-API</p>
+	        <br>
+        	<div id="wizard_map" class="rermap"></div>
+            <div id="localizzazionePanel"></div>
+		</div>	 
+    </body>
+</html>

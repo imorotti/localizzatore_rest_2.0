@@ -1,0 +1,60 @@
+/ArcXML.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/Atom.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/CQL.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/CSWGetDomain.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/CSWGetRecords.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/Context.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/EncodedPolyline.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/Filter.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/GML.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/GPX.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/GeoJSON.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/GeoRSS.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/JSON.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/KML.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/OGCExceptionReport.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/OSM.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/OWSCommon.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/OWSContext.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/QueryStringFilter.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/SLD.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/SOSCapabilities.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/SOSGetFeatureOfInterest.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/SOSGetObservation.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/Text.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/WCSCapabilities.js/1.1.1.1/Thu Oct 31 09:23:44 2013//
+/WCSGetCoverage.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WFS.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WFSCapabilities.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WFSDescribeFeatureType.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WFST.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WKT.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WMC.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WMSCapabilities.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WMSDescribeLayer.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WMSGetFeatureInfo.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WMTSCapabilities.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WPSCapabilities.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WPSDescribeProcess.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/WPSExecute.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/XLS.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+/XML.js/1.1.1.1/Thu Oct 31 09:23:44 2013/-kkv/
+D/ArcXML////
+D/CSWGetDomain////
+D/CSWGetRecords////
+D/Filter////
+D/GML////
+D/OWSCommon////
+D/OWSContext////
+D/SLD////
+D/SOSCapabilities////
+D/WCSCapabilities////
+D/WFSCapabilities////
+D/WFST////
+D/WMC////
+D/WMSCapabilities////
+D/WMSDescribeLayer////
+D/WMTSCapabilities////
+D/WPSCapabilities////
+D/XLS////
+D/XML////

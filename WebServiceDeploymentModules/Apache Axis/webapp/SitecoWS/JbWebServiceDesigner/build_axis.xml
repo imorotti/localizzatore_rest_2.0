@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    default="JB_Default_Task" xsi:type="project">
+    <taskdef name="java2wsdl" classname="org.apache.axis.tools.ant.wsdl.Java2WsdlAntTask"/>
+    <taskdef name="wsdl2java" classname="org.apache.axis.tools.ant.wsdl.JBWsdl2javaAntTask"/>
+    <target name="JB_Default_Task">
+        <java2wsdl bindingname="SitecoWSSoapBinding"
+            classname="com.siteco.SitecoWS"
+            extraclasses="com.siteco.Coord,com.siteco.GenEnvelope,com.siteco.GenMap,com.siteco.MapURLs,com.siteco.Particella,com.siteco.Progressiva,com.siteco.GenLayer,com.siteco.ArrayOfGenLayer,com.siteco.ArrayOfInt,com.siteco.ArrayOfObjsInLayer"
+            location="http://213.209.218.211.8080/SitecoWS/services/SitecoWS"
+            namespace="http://siteco.com"
+            output="C:/sviluppo/jbuilder2006/localizzatore/SitecoWS.wsdl"
+            porttypename="SitecoWS" serviceelementname="SitecoWSService"
+            serviceportname="SitecoWS"
+            stopclasses="javax.* java.* org.apache.axis.AxisFault "
+            style="wrapped" typemappingversion="1.1" use="literal"
+            useinheritedmethods="false" soapaction="OPERATION">
+            <mapping
+                namespace="http://envelope.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.envelope"/>
+            <mapping
+                namespace="http://query.layer.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.layer.query"/>
+            <mapping
+                namespace="http://workspace.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.workspace"/>
+            <mapping
+                namespace="http://acetate.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.acetate"/>
+            <mapping
+                namespace="http://layer.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.layer"/>
+            <mapping namespace="http://map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map"/>
+            <mapping
+                namespace="http://geocode.layer.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.layer.geocode"/>
+            <mapping
+                namespace="http://output.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.output"/>
+            <mapping
+                namespace="http://projection.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.projection"/>
+            <classpath>
+                <pathelement path="C:\sviluppo\jbuilder2006\localizzatore\classes;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\axis.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\axis-ant.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\commons-discovery-0.2.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\commons-logging-1.0.4.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\jaxrpc.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\jdbf.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\JRsOpMat.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\jtds-1.2.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\junit.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\mail.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\naming-factory-dbcp.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\ojdbc14.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\saaj.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\sdoapi.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\sqljdbc.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\unittest.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\wsdl4j-1.5.1.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\sdoutl.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\javax.servlet-5.1.12.jar;C:\Borland\JBuilder2006\thirdparty\jakarta-tomcat-5.5.9\common\lib\servlet-api.jar;C:\Borland\JBuilder2006\thirdparty\jakarta-tomcat-5.5.9\common\lib\jsp-api.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\jsde_sdk.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\icu4j_3_2.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\jpe_sdk.jar;C:\sviluppo\jbuilder2006\localizzatore\SitecoWS_lib\log4j.jar;C:\SitecoWS_lib_agws\jsr173_1.0_api.jar;C:\SitecoWS_lib_agws\arcgis_agsws_stubs.jar;C:\SitecoWS_lib_agws\jaxb-api.jar;C:\SitecoWS_lib_agws\commons-codec-1.3.jar;C:\SitecoWS_lib_agws\jaxb-impl.jar;C:\SitecoWS_lib_agws\commons-httpclient-3.0.1.jar;C:\SitecoWS_lib_agws\commons-logging-1.0.4.jar;C:\SitecoWS_lib_agws\arcgis_ws_runtime.jar;C:\SitecoWS_lib_agws\activation.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\plugin.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\rt.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\ext\dnsns.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\ext\sunpkcs11.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\ext\sunjce_provider.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\ext\localedata.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\im\indicim.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\im\thaiim.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\javaws.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\deploy.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\jsse.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\jce.jar;C:\Borland\JBuilder2006\jdk1.5\jre\lib\charsets.jar;C:\Borland\JBuilder2006\jdk1.5\lib\tools.jar;C:\Borland\JBuilder2006\jdk1.5\lib\jconsole.jar;C:\Borland\JBuilder2006\jdk1.5\lib\htmlconverter.jar;C:\Borland\JBuilder2006\jdk1.5\lib\dt.jar;"/>
+            </classpath>
+        </java2wsdl>
+        <wsdl2java all="true" debug="false" helperGen="false"
+            noimports="false"
+            testCaseOutputDirectory="C:/sviluppo/jbuilder2006/localizzatore/classes/ws-gen/test/1140158361261-SitecoWS"
+            output="C:/sviluppo/jbuilder2006/localizzatore/classes/ws-gen/src/1140158361261-SitecoWS"
+            serverside="false" skeletonDeploy="false" testcase="false"
+            testcaseoverwrite="false" typeMappingVersion="1.1"
+            url="file:///C:/sviluppo/jbuilder2006/localizzatore/SitecoWS.wsdl"
+            verbose="false" noWrapped="false" overWriteTypes="true">
+            <mapping
+                namespace="http://layer.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.layer.generated"/>
+            <mapping
+                namespace="http://map.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.map.generated"/>
+            <mapping
+                namespace="http://projection.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.projection.generated"/>
+            <mapping
+                namespace="http://layer.map.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.map.layer.generated"/>
+            <mapping
+                namespace="http://envelope.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.envelope.generated"/>
+            <mapping
+                namespace="http://output.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.output.generated"/>
+            <mapping
+                namespace="http://envelope.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.envelope.generated"/>
+            <mapping
+                namespace="http://output.map.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.map.output.generated"/>
+            <mapping
+                namespace="http://query.layer.map.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.map.layer.query.generated"/>
+            <mapping
+                namespace="http://geocode.layer.map.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.map.layer.geocode.generated"/>
+            <mapping
+                namespace="http://projection.map.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.map.projection.generated"/>
+            <mapping
+                namespace="http://acetate.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.acetate.generated"/>
+            <mapping
+                namespace="http://workspace.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.workspace.generated"/>
+            <mapping
+                namespace="http://projection.map.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.map.projection.generated"/>
+            <mapping
+                namespace="http://map.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.map.generated"/>
+            <mapping
+                namespace="http://geocode.layer.map.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.map.layer.geocode.generated"/>
+            <mapping namespace="http://map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.generated"/>
+            <mapping namespace="http://siteco.com" package="com.siteco.generated"/>
+            <mapping
+                namespace="http://output.map.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.map.output.generated"/>
+            <mapping
+                namespace="http://geocode.layer.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.layer.geocode.generated"/>
+            <mapping
+                namespace="http://workspace.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.workspace.generated"/>
+            <mapping
+                namespace="http://envelope.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.envelope.generated"/>
+            <mapping
+                namespace="http://acetate.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.acetate.generated"/>
+            <mapping
+                namespace="http://query.layer.map.model.mtier.aims.esri.com" package="com.esri.aims.mtier.model.map.layer.query.generated"/>
+            <mapping
+                namespace="http://acetate.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.acetate.generated"/>
+            <mapping
+                namespace="http://workspace.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.workspace.generated"/>
+            <mapping
+                namespace="http://layer.map.model.mtier.aims.esri.com-impl" package="com.esri.aims.mtier.model.map.layer.generated"/>
+            <mapping
+                namespace="http://query.layer.map.model.mtier.aims.esri.com-intf" package="com.esri.aims.mtier.model.map.layer.query.generated"/>
+        </wsdl2java>
+    </target>
+</project>

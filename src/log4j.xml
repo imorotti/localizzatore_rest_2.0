@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+               <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+                              <param name="Threshold" value="debug"/>
+                              <layout class="org.apache.log4j.PatternLayout">
+                                            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss} %-5p %C{1}.%M - %m%n" />
+                              </layout>
+               </appender>
+                              
+               <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+                              <param name="File" value="/var/lib/jboss-as/server/cartografica/log/localizzatore_rest.log"/>
+                              <param name="Threshold" value="debug"/>
+                              <param name="Append" value="true"/>
+                              <param name="MaxFileSize" value="5000KB"/>
+                              <param name="MaxBackupIndex" value="1"/>
+                              <layout class="org.apache.log4j.PatternLayout">
+                                            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH\:mm\:ss} %-5p %C{1}.%M - %m%n" />
+                              </layout>
+               </appender>
+               
+               <logger name="localizzatore_rest">
+                              <level value="debug"/>
+                              <appender-ref ref="FILE"/>
+                              <appender-ref ref="STDOUT"/>
+               </logger>
+
+</log4j:configuration>

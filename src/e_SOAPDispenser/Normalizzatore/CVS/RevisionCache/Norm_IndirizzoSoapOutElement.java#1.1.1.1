@@ -1,0 +1,74 @@
+/**
+ * Norm_IndirizzoSoapOutElement.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.2.1 Aug 08, 2005 (11:49:10 PDT) WSDL2Java emitter.
+ */
+
+package e_SOAPDispenser.Normalizzatore;
+
+public class Norm_IndirizzoSoapOutElement  implements java.io.Serializable {
+    private e_SOAPDispenser.Normalizzatore.Norm_IndirizzoOutput norm_IndirizzoOutput;
+
+    public Norm_IndirizzoSoapOutElement() {
+    }
+
+    public Norm_IndirizzoSoapOutElement(
+           e_SOAPDispenser.Normalizzatore.Norm_IndirizzoOutput norm_IndirizzoOutput) {
+           this.norm_IndirizzoOutput = norm_IndirizzoOutput;
+    }
+
+
+    /**
+     * Gets the norm_IndirizzoOutput value for this Norm_IndirizzoSoapOutElement.
+     * 
+     * @return norm_IndirizzoOutput
+     */
+    public e_SOAPDispenser.Normalizzatore.Norm_IndirizzoOutput getNorm_IndirizzoOutput() {
+        return norm_IndirizzoOutput;
+    }
+
+
+    /**
+     * Sets the norm_IndirizzoOutput value for this Norm_IndirizzoSoapOutElement.
+     * 
+     * @param norm_IndirizzoOutput
+     */
+    public void setNorm_IndirizzoOutput(e_SOAPDispenser.Normalizzatore.Norm_IndirizzoOutput norm_IndirizzoOutput) {
+        this.norm_IndirizzoOutput = norm_IndirizzoOutput;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Norm_IndirizzoSoapOutElement)) return false;
+        Norm_IndirizzoSoapOutElement other = (Norm_IndirizzoSoapOutElement) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.norm_IndirizzoOutput==null && other.getNorm_IndirizzoOutput()==null) || 
+             (this.norm_IndirizzoOutput!=null &&
+              this.norm_IndirizzoOutput.equals(other.getNorm_IndirizzoOutput())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getNorm_IndirizzoOutput() != null) {
+            _hashCode += getNorm_IndirizzoOutput().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+}

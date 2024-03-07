@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>GetFeatureInfo Popup</title>
+    <script src="http://localhost:8090//localizzatore_rest/js/OpenLayers/lib/OpenLayers.js"></script>
+    <link rel="stylesheet" href="http://localhost:8090//localizzatore_rest/js/OpenLayers/theme/default/style.css" type="text/css">
+	<style type="text/css">
+		body {
+    font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+    font-size: 80%;
+    color: #222;
+    background: #fff;
+    margin: 1em 1.5em;
+}
+pre, code {
+    margin: 1.5em 0;
+    white-space: pre;
+}
+pre, code {
+    font: 1em 'andale mono', 'lucida console', monospace;
+    line-height:1.5;
+}
+a[href] {
+    color: #436976;
+    background-color: transparent;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #003a6b;
+    background-color: transparent;
+    font: 100% 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding-top: 0.5em;
+}
+h1 {
+    font-size: 130%;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #fcb100;
+}
+h2 {
+    font-size: 120%;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #aaa;
+}
+h3 {
+    font-size: 110%;
+    margin-bottom: 0.5em;
+    text-decoration: underline;
+}
+h4 {
+    font-size: 100%;
+    font-weight: bold;
+}
+h5 {
+    font-size: 100%;
+    font-weight: bold;
+}
+h6 {
+    font-size: 80%;
+    font-weight: bold;
+}
+
+.olControlAttribution {
+    bottom: 5px;
+}
+
+/**
+ * Map Examples Specific
+ */
+.smallmap {
+    width: 512px;
+    height: 256px;
+    border: 1px solid #ccc;
+}
+#tags {
+    display: none;
+}
+
+#docs p {
+    margin-bottom: 0.5em;
+}
+/* mobile specific */
+@media only screen and (max-width: 600px) {
+    body {
+        height           : 100%;
+        margin           : 0;
+        padding          : 0;
+        width            : 100%;
+    }
+    #map {
+        background : #7391ad;
+        width      : 100%;
+    }
+    #map {
+        border : 0;
+        height : 250px;
+    }
+    #title {
+        font-size   : 1.3em;
+        line-height : 2em;
+        text-indent : 1em;
+        margin      : 0;
+        padding     : 0;
+    }
+    #docs {
+        bottom     : 0;
+        padding    : 1em;
+    }
+    #shortdesc {
+        color      : #aaa;
+        font-size  : 0.8em;
+        padding    : 1em;
+        text-align : right;
+    }
+    #tags {
+        display : none;
+    }
+}
+@media only screen and (orientation: landscape) and (max-width: 600px) {
+    #shortdesc {
+       float: right;
+       width: 25%;
+    }
+    #map {
+        width: 70%;
+    }
+    #docs {
+        font-size: 12px;
+    }
+}
+body {
+    -webkit-text-size-adjust: none;
+}
+	</style>
+    <script>
+    OpenLayers.ProxyHost = "http://openlayers.org/dev/examples/proxy.cgi?url=";
+	
+    var map, info;
+    
+    function load() {
+		WGS84 = new OpenLayers.Projection("EPSG:4326"); 
+		mapOpt = {
+			displayProjection: WGS84, 
+			div:"map",
+			numZoomLevels: 20,
+		}
+        map = new OpenLayers.Map(
+			"map",
+            mapOpt
+        );
+
+        var political = new OpenLayers.Layer.WMS("CIVICI",
+            "http://servizigis.regione.emilia-romagna.it/wms/dbtr2008", 
+            {'layers': 'NCV_CIVICO', transparent: true},
+            {isBaseLayer: false}
+        );
+
+        var roads = new OpenLayers.Layer.WMS("FOTO",
+            "http://servizigis.regione.emilia-romagna.it/arcgis/public/Agea2008_RGB/ImageServer/WMSServer", 
+            {'layers': 'Agea2008_RGB', transparent: true},
+            {isBaseLayer: true}
+        );
+
+        var highlight = new OpenLayers.Layer.Vector("Highlighted Features", {
+            displayInLayerSwitcher: false, 
+            isBaseLayer: false 
+        });
+        
+        map.addLayers([political, roads, highlight]); 
+
+        info = new OpenLayers.Control.WMSGetFeatureInfo({
+            //url: 'http://servizigis.regione.emilia-romagna.it/wms/dbtr2008', 
+			url: 'http://demo.opengeo.org/geoserver/wms', 
+			layers: ['NCV_CIVICO'],
+            title: 'Identify features by clicking',
+            queryVisible: true,
+            eventListeners: {
+				getfeatureinfo: test
+                /*getfeatureinfo: function(event) {
+                    map.addPopup(new OpenLayers.Popup.FramedCloud(
+                        "chicken", 
+                        map.getLonLatFromPixel(event.xy),
+                        null,
+                        event.text,
+                        null,
+                        true
+                    ));
+                }*/
+            }
+        });
+        map.addControl(info);
+        info.activate();
+
+        map.addControl(new OpenLayers.Control.LayerSwitcher());
+        map.zoomToExtent(new OpenLayers.Bounds(9.161096,43.673444,12.911952,45.157016));
+    }
+	
+	function test(event)
+	{
+		alert("son qua");
+	}
+
+  </script>
+  </head>
+  <body onload="load()">
+      <h1 id="title">Feature Info in Popup</h1>
+
+      <div id="tags">
+        WMS, GetFeatureInfo, popup
+      </div>
+
+      <p id="shortdesc">
+        Demonstrates the WMSGetFeatureInfo control for fetching information
+        about a position from WMS (via GetFeatureInfo request).  Results
+        are displayed in a popup.
+      </p>
+
+      <div id="map" class="smallmap"></div>
+
+    <div id="docs"></div>
+  </body>
+</html>

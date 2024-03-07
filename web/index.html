@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#0066CC">
+        <title>Localizzatore Demo</title>
+        <script>window.__PUBLIC_PATH__ = 'js/bootstrap-italia/fonts'</script>
+        <script type="text/javascript" src="js/bootstrap-italia/js/bootstrap-italia.bundle.min.js"></script>
+        <script type="text/javascript" src="js/ol/ol.js"></script>
+        <script type="text/javascript" src="js/ol/ol-ext.min.js"></script>
+        <script type="text/javascript" src="js/ol/proj4.js"></script>
+        <script type="text/javascript" src="js/Localizzatore2/Localizzatore2.js"></script>
+
+        <link rel="stylesheet" href="js/bootstrap-italia/css/bootstrap-italia.min.css">
+        <link rel="stylesheet" href="js/fontawesome6/css/all.min.css" />
+        <link rel="stylesheet" href="js/ol/ol.css">
+        <link rel="stylesheet" href="js/ol/ol-ext.min.css">
+        <link rel="stylesheet" href="js/Localizzatore2/Localizzatore2.css">    
+        <style>
+            #map {
+                width:100%;
+                height:500px;
+                color:white;
+                font-size: small;
+                border: 1px solid black;
+                margin-top: 10px;
+            }
+
+            #btnLocalizza {
+                padding-top: 1px;
+                margin-top: 0px;
+                margin-left: 30px;
+                padding-bottom: 5px;
+            }
+
+            .ol-mouse-position {
+                top: unset;
+                bottom: 8px;
+                right: 8px;
+                position: absolute;
+            }
+
+            .ol-control.ol-layerswitcher {
+                top: 8px;
+            }
+
+            .ol-layerswitcher {
+                top: 8px;
+                color: black;
+                font-size: 13px;
+            }
+
+            .ol-layerswitcher .panel li label {
+                height: 1.5em;
+            }
+
+            .hideOpacity .layerswitcher-opacity {
+                display:none;
+            }
+            .hideOpacity .ol-layerswitcher .layerup {
+                height: 1.5em;
+            }
+
+            .showPercent .layerSwitcher .ol-layerswitcher .layerswitcher-opacity-label {
+                display: block;
+            }
+
+            .ol-header > div {
+                width: 100%;
+            }
+
+            .toggleVisibility {
+                padding-left: 1.6em;
+                cursor: pointer;
+                border-bottom: 2px solid #369;
+                margin-bottom: 0.5em;
+            }
+
+            .toggleVisibility:before {
+                background-color: #fff;
+                border: 2px solid #369;
+                box-sizing: border-box;
+                content: "";
+                display: block;
+                height: 1.2em;
+                left: 0.1em;
+                margin: 0;
+                position: absolute;
+                width: 1.2em;
+            }
+
+            .toggleVisibility.show:before {
+                background: #369;
+            }
+
+            .screenFiller {
+                position: fixed;
+                top: 40px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            .ol-zoom-gps {
+                top: 7.2em;
+                left: .5em;
+            }
+
+            .ol-download-shp {
+                top: 4.2em;
+                left: .5em;
+            }
+
+            .ol-popup-content {
+                color:black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class ="container">
+            <div id="map" class="map"></div>
+            <div id="localizzazionePanel" class="localizzazione_panel"></div>
+            <div id="ricercaPanel" class="localizzazione_panel"></div>
+        </div>
+        <script>
+            var options = {
+                normalizzatoreId: "inciweb",
+                tipo_coord: 'UTMRER',
+                rif_geo_civ: 'PCIV',
+                ricercaSemplice: true,
+                localizzatoreUrl: "https://servizigistest.regione.emilia-romagna.it/localizzatore_rest",
+                normalizzatoreUrl: "https://servizigis.regione.emilia-romagna.it/normalizzatore"
+            };
+            init("map", "localizzazionePanel", "ricercaPanel", options);
+        </script>
+    </body>
+</html>

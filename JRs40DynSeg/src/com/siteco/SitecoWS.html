@@ -1,0 +1,1355 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><!--JBuilder QuickDoc-->
+<HEAD>
+<TITLE>Class com.siteco.SitecoWS</TITLE><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+
+<H2>
+<FONT SIZE="-1">com.siteco</FONT>
+<BR>Class SitecoWS</H2>
+<DL>
+<DT>public class <B>SitecoWS</B>
+</DL>
+<DL><DD><p>Title: Siteco Web Service (SitecoWS)</p> <p>Descrtion: Servizio Web di integrazione con ArcIMS / GeoIN e altri map server futuri </p> <p>Copyright: Copyright (c) 2006</p> <p>Company: Siteco Informatica s.r.l.</p><DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Version:</B><DD>1.0</DD>
+<DT><B>Author:</B><DD>Ivan Morotti</DD>
+</DL>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B>
+</FONT></TD></TR></TABLE>
+
+<A NAME="drawMarker(double, double, boolean, java.lang.String, java.lang.String, int, java.lang.String)"></A>
+
+<H3>drawMarker</H3>
+<PRE>
+public com.siteco.MapURLs <B>drawMarker</B>(double&nbsp;xCoord,
+                                     double&nbsp;yCoord,
+                                     boolean&nbsp;pan,
+                                     java.lang.String&nbsp;symbol,
+                                     java.lang.String&nbsp;testo,
+                                     int&nbsp;toll,
+                                     java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Disegna un marker sulla mappa ed eventualmente fa il pan; restituisce gli URLs della mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>xCoord</CODE> - double</DD>
+<DD><CODE>yCoord</CODE> - double</DD>
+<DD><CODE>pan</CODE> - boolean</DD>
+<DD><CODE>layer</CODE> - String</DD>
+<DD><CODE>symbol</CODE> - String</DD>
+<DD><CODE>testo</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs mapURLs della mappa</DD>
+</DL>
+<HR>
+
+<A NAME="drawMarkerFromTo(double, double, boolean, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>drawMarkerFromTo</H3>
+<PRE>
+public com.siteco.MapURLs <B>drawMarkerFromTo</B>(double&nbsp;xCoord,
+                                           double&nbsp;yCoord,
+                                           boolean&nbsp;pan,
+                                           java.lang.String&nbsp;symbol,
+                                           java.lang.String&nbsp;testo,
+                                           java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Disegna un marker sulla mappa ed eventualmente fa il pan; restituisce gli URLs della mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>xCoord</CODE> - double</DD>
+<DD><CODE>yCoord</CODE> - double</DD>
+<DD><CODE>pan</CODE> - boolean</DD>
+<DD><CODE>layer</CODE> - String</DD>
+<DD><CODE>symbol</CODE> - String</DD>
+<DD><CODE>testo</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs mapURLs della mappa</DD>
+</DL>
+<HR>
+
+<A NAME="deleteMarker(java.lang.String, java.lang.String)"></A>
+
+<H3>deleteMarker</H3>
+<PRE>
+public com.siteco.MapURLs <B>deleteMarker</B>(java.lang.String&nbsp;idMarker,
+                                       java.lang.String&nbsp;idMap)</PRE>
+<DL><DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<A NAME="SettaLivelliMappaGeoin(java.lang.String, geoin.webgis.Map)"></A>
+
+<H3>SettaLivelliMappaGeoin</H3>
+<PRE>
+private void <B>SettaLivelliMappaGeoin</B>(java.lang.String&nbsp;idMap,
+                                    geoin.webgis.Map&nbsp;map)</PRE>
+<DL><DD>Imposta i layer visibili della mappa perchè Geoin non si ricorda quali sono quelli visibili.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DD><CODE>map</CODE> - Map</DD>
+</DL>
+<HR>
+
+<A NAME="CreaMappaGeoin(com.siteco.MapURLs, java.lang.String, geoin.webgis.Map, int)"></A>
+
+<H3>CreaMappaGeoin</H3>
+<PRE>
+private void <B>CreaMappaGeoin</B>(com.siteco.MapURLs&nbsp;mu,
+                            java.lang.String&nbsp;idMap,
+                            geoin.webgis.Map&nbsp;map,
+                            int&nbsp;DisplayT)</PRE>
+<DL><DD>Restituisce i mapurl della mappa in geoin<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>mu</CODE> - MapURLs</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DD><CODE>map</CODE> - geoin.webgis.Map</DD>
+</DL>
+<HR>
+
+<A NAME="LeggeFileDiConfigurazione()"></A>
+
+<H3>LeggeFileDiConfigurazione</H3>
+<PRE>
+private com.siteco.GenMap <B>LeggeFileDiConfigurazione</B>()</PRE>
+<DL><DD>Legge il file di configurazione del webservice<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>GenMap</DD>
+</DL>
+<HR>
+
+<A NAME="getMapLayersDefinitions(java.lang.String)"></A>
+
+<H3>getMapLayersDefinitions</H3>
+<PRE>
+public com.siteco.ArrayOfGenLayer <B>getMapLayersDefinitions</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restiruisce un array con la descrizione di ciascun layer;<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String stringa con la descrizione di ciascun layer</DD>
+</DL>
+<HR>
+
+<A NAME="getMapLayersVisible(java.lang.String)"></A>
+
+<H3>getMapLayersVisible</H3>
+<PRE>
+public com.siteco.ArrayOfGenLayer <B>getMapLayersVisible</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restiruisce un array con la descrizione di ciascun layer;<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String stringa con la descrizione di ciascun layer</DD>
+</DL>
+<HR>
+
+<A NAME="setMapLayersVisible(com.siteco.ArrayOfGenLayer, java.lang.String)"></A>
+
+<H3>setMapLayersVisible</H3>
+<PRE>
+public com.siteco.MapURLs <B>setMapLayersVisible</B>(com.siteco.ArrayOfGenLayer&nbsp;visibleLayers,
+                                              java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restiruisce la mappa con i layer indicati accesi<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>visibleLayers</CODE> - ArrayOfGenLayer</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs</DD>
+</DL>
+<HR>
+
+<A NAME="cercaLayerByTag(geoin.webgis.Map, java.lang.String)"></A>
+
+<H3>cercaLayerByTag</H3>
+<PRE>
+private geoin.webgis.LayerOfMap <B>cercaLayerByTag</B>(geoin.webgis.Map&nbsp;_map,
+                                                java.lang.String&nbsp;TagLayer)</PRE>
+<DL><DD>cerca il layer per il suo tag (versione GEOIN)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>_map</CODE> - Map</DD>
+<DD><CODE>TagLayer</CODE> - String</DD>
+<DT><B>Returns:</B><DD>LayerOfMap</DD>
+</DL>
+<HR>
+
+<A NAME="cercaLayerTagByName(geoin.webgis.Map, java.lang.String)"></A>
+
+<H3>cercaLayerTagByName</H3>
+<PRE>
+private java.lang.String <B>cercaLayerTagByName</B>(geoin.webgis.Map&nbsp;_map,
+                                             java.lang.String&nbsp;LayerName)</PRE>
+<DL><DD>cerca il tag del layer per nome (GEOIN)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>_map</CODE> - Map</DD>
+<DD><CODE>LayerName</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String</DD>
+</DL>
+<HR>
+
+<A NAME="setLayerVisible(java.lang.String, boolean, java.lang.String)"></A>
+
+<H3>setLayerVisible</H3>
+<PRE>
+public com.siteco.MapURLs <B>setLayerVisible</B>(java.lang.String&nbsp;TagLayer,
+                                          boolean&nbsp;visible,
+                                          java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Setta il layer indentificato da TagLayer visibile/invisibile<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>TagLayer</CODE> - String</DD>
+<DD><CODE>visible</CODE> - boolean</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs</DD>
+</DL>
+<HR>
+
+<A NAME="getMapEnvelope(java.lang.String)"></A>
+
+<H3>getMapEnvelope</H3>
+<PRE>
+public com.siteco.GenEnvelope <B>getMapEnvelope</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restituisce l'envelope della mappa/sevizio<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>GenEnvelope envelope della mappa/servizio</DD>
+</DL>
+<HR>
+
+<A NAME="initNormalizzatore(java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>initNormalizzatore</H3>
+<PRE>
+public java.lang.String <B>initNormalizzatore</B>(java.lang.String&nbsp;address,
+                                           java.lang.String&nbsp;user,
+                                           java.lang.String&nbsp;password)</PRE>
+<DL><DD><DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>address</CODE> - String Indirizzo del web service normalizzatore; deve essere nella forma http://192.168.7.201:8080</DD>
+<DD><CODE>user</CODE> - String Utente utilizzato per il rilascio dell'handle</DD>
+<DD><CODE>password</CODE> - String Password dell'utente utilizzato per il rilascio dell'handle</DD>
+<DT><B>Returns:</B><DD>String Handle utilizzato per nelle chiamate ai metodi di normalizzazione; in caso di errore verrà restituita una stringa del tipo: "Errore nella connessione al normalizzatore: " + messaggio di errore</DD>
+</DL>
+<HR>
+
+<A NAME="normIndirizzo1(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>normIndirizzo1</H3>
+<PRE>
+public e_SOAPDispenser.Normalizzatore.Norm_Indirizzo1OutputRecordsetArray <B>normIndirizzo1</B>(java.lang.String&nbsp;p_toponimo,
+                                                                                         java.lang.String&nbsp;p_comune,
+                                                                                         java.lang.String&nbsp;p_provincia,
+                                                                                         java.lang.String&nbsp;p_cod_istat,
+                                                                                         java.lang.String&nbsp;p_cod_nazionale,
+                                                                                         java.lang.String&nbsp;p_cod_catastale,
+                                                                                         java.lang.String&nbsp;handle)</PRE>
+<DL><DD>La norm_Indirizzo1 consente di passare come parametro il toponimo della strada unito al numero civico (con eventuale suffisso). Il numero civico deve esserci, e deve essere scritto nella parte terminale della stringa. Alla funzione verranno inoltre forniti il nome del comune e/o nome/sigla della provincia oppure il codice istat del comune o il codice nazionale o quello catastale<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>p_toponimo</CODE> - String nome della strada. Come ultimo elemento deve contenere un civico con eventuale suffisso</DD>
+<DD><CODE>p_comune</CODE> - String eventuale nome del comune</DD>
+<DD><CODE>p_provincia</CODE> - String eventuale nome o alla sigla della provincia</DD>
+<DD><CODE>p_cod_istat</CODE> - String eventuale Codice ISTAT del Comune</DD>
+<DD><CODE>p_cod_nazionale</CODE> - String eventuale Codice nazionale del comune (agenzia del territorio)</DD>
+<DD><CODE>p_cod_catastale</CODE> - String eventuale Codice catastale del comune (agenzia del territorio)</DD>
+<DD><CODE>handle</CODE> - String handle di connessione al normalizzatore</DD>
+<DT><B>Returns:</B><DD>Norm_Indirizzo1OutputRecordsetArray Array di rowset contenenti i risultati ottenuti dal processo di normalizzazione. Un rowset conterrà gli indirizzi ottenuti tramite gli algoritmi di ricerca. Se l'indirizzo viene identificato univocamente, il cursore conterrà solo l'indirizzo individuato. Altrimenti verranno restituiti più indirizzi, con associati il grado di affidabilità del risultato (0 = via identificata con certezza, > 0 incerto). Le righe del cursore ritornato sono ordinate per livelli di affidabilità decrescenti. Il grado di affidabilità non è direttamente influenzato dal numero civico: per sapere se il civico è stato identificato o no si deve guardare il campo CIVICO_ID, che sarà a NULL in caso in cui la ricerca fallisca e verificare il grado di affidabilità del civico. Il suffisso viene individuato tramite una funzione apposita, separatamente quindi dal civico, in modo da poter identificare civici anche se hanno il suffisso sbagliato. Nel caso di ricerca di un civico di una località, se non viene trovato, verrà riportato (se inserito in tabella dalla procedura di aggiornamento della GEO_T_CIVICI) il civico numero 0, che rappresenta il punto centrale della località.</DD>
+</DL>
+<HR>
+
+<A NAME="normIndirizzo2(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>normIndirizzo2</H3>
+<PRE>
+public e_SOAPDispenser.Normalizzatore.Norm_Indirizzo2OutputRecordsetArray <B>normIndirizzo2</B>(java.lang.String&nbsp;p_toponimo,
+                                                                                         java.lang.String&nbsp;p_civico,
+                                                                                         java.lang.String&nbsp;p_comune,
+                                                                                         java.lang.String&nbsp;p_provincia,
+                                                                                         java.lang.String&nbsp;p_cod_istat,
+                                                                                         java.lang.String&nbsp;p_cod_nazionale,
+                                                                                         java.lang.String&nbsp;p_cod_catastale,
+                                                                                         java.lang.String&nbsp;handle)</PRE>
+<DL><DD>La Norm_Indirizzo2 richiede il toponimo della strada separato dal numero civico (con eventuale suffisso). Alla funzione verranno inoltre forniti: il nome del comune e/o nome/sigla della provincia oppure il codice istat del comune o il codice nazionale o quello catastale<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>p_toponimo</CODE> - String nome della strada. La stringa non deve contenere un numero civico</DD>
+<DD><CODE>p_civico</CODE> - String eventuale numero del civico della strada</DD>
+<DD><CODE>p_comune</CODE> - String eventuale nome del comune</DD>
+<DD><CODE>p_provincia</CODE> - String eventuale nome o alla sigla della provincia</DD>
+<DD><CODE>p_cod_istat</CODE> - String eventuale Codice ISTAT del Comune</DD>
+<DD><CODE>p_cod_nazionale</CODE> - String eventuale Codice nazionale del comune (agenzia del territorio)</DD>
+<DD><CODE>p_cod_catastale</CODE> - String eventuale Codice catastale del comune (agenzia del territorio)</DD>
+<DD><CODE>handle</CODE> - String handle di connessione al normalizzatore</DD>
+<DT><B>Returns:</B><DD>Norm_Indirizzo2OutputRecordsetArray Array di rowset contenenti i risultati ottenuti dal processo di normalizzazione. Un rowset conterrà gli indirizzi ottenuti tramite gli algoritmi di ricerca. Se l'indirizzo viene identificato univocamente, il cursore conterrà solo l'indirizzo individuato. Altrimenti verranno restituiti più indirizzi, con associati il grado di affidabilità del risultato (0 = via identificata con certezza, > 0 incerto). Le righe del cursore ritornato sono ordinate per livelli di affidabilità decrescenti. Il grado di affidabilità non è direttamente influenzato dal numero civico: per sapere se il civico è stato identificato o no si deve guardare il campo CIVICO_ID, che sarà a NULL in caso in cui la ricerca fallisca e verificare il grado di affidabilità del civico. Il suffisso viene individuato tramite una funzione apposita, separatamente quindi dal civico, in modo da poter identificare civici anche se hanno il suffisso sbagliato. Nel caso di ricerca di un civico di una località, se non viene trovato, verrà riportato (se inserito in tabella dalla procedura di aggiornamento della GEO_T_CIVICI) il civico numero 0, che rappresenta il punto centrale della località.</DD>
+</DL>
+<HR>
+
+<A NAME="normComune1(java.lang.String, java.lang.String)"></A>
+
+<H3>normComune1</H3>
+<PRE>
+public e_SOAPDispenser.Normalizzatore.Norm_Comune1OutputRecordsetArray <B>normComune1</B>(java.lang.String&nbsp;p_toponimo,
+                                                                                   java.lang.String&nbsp;handle)</PRE>
+<DL><DD>La Norm_Comune1 consente di effettuare la ricerca del comune passando un'unica stringa che può contenere un Cap, la descrizione del comune e la provincia (sigla o descrizione). La descrizione del comune e la provincia sono obbligatori e devono essere scritti in sequenza (prima il comune, poi la provincia).<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>p_toponimo</CODE> - String nome del comune. La stringa potrà contenere eventualmente un cap (5 cifre), la descrizione del comune, eventualmente la sigla o la descrizione della provincia</DD>
+<DD><CODE>handle</CODE> - String handle di connessione al normalizzatore</DD>
+<DT><B>Returns:</B><DD>Norm_Comune1OutputRecordsetArray Array di rowset contenenti i risultati ottenuti dal processo di normalizzazione</DD>
+</DL>
+<HR>
+
+<A NAME="normComune2(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>normComune2</H3>
+<PRE>
+public e_SOAPDispenser.Normalizzatore.Norm_Comune2OutputRecordsetArray <B>normComune2</B>(java.lang.String&nbsp;p_toponimo,
+                                                                                   java.lang.String&nbsp;p_cap,
+                                                                                   java.lang.String&nbsp;p_provincia,
+                                                                                   java.lang.String&nbsp;p_cod_istat,
+                                                                                   java.lang.String&nbsp;p_cod_nazionale,
+                                                                                   java.lang.String&nbsp;p_cod_catastale,
+                                                                                   java.lang.String&nbsp;handle)</PRE>
+<DL><DD>La Norm Comune2 richiede la descrizione del comune, il cap e la provincia come parametri distinti, in più consente la ricerca per codice istat, nazionale o catastale.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>p_toponimo</CODE> - String nome del comune. La stringa dovrà contenere solo ladescrizione del comune.</DD>
+<DD><CODE>p_cap</CODE> - String eventuale Codice di avviamento postale</DD>
+<DD><CODE>p_provincia</CODE> - String eventuale nome o alla sigla della provincia</DD>
+<DD><CODE>p_cod_istat</CODE> - String eventuale Codice ISTAT del Comune</DD>
+<DD><CODE>p_cod_nazionale</CODE> - String eventuale Codice nazionale del comune (agenzia del territorio)</DD>
+<DD><CODE>p_cod_catastale</CODE> - String eventuale Codice catastale del comune (agenzia del territorio)</DD>
+<DD><CODE>handle</CODE> - String handle di connessione al normalizzatore</DD>
+<DT><B>Returns:</B><DD>Norm_Comune2OutputRecordsetArray Array di rowset contenenti i risultati ottenuti dal processo di normalizzazione</DD>
+</DL>
+<HR>
+
+<A NAME="normProvincia(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>normProvincia</H3>
+<PRE>
+public e_SOAPDispenser.Normalizzatore.Norm_ProvinciaOutputRecordsetArray <B>normProvincia</B>(java.lang.String&nbsp;p_provincia,
+                                                                                       java.lang.String&nbsp;p_cod_istat,
+                                                                                       java.lang.String&nbsp;p_cod_nazionale,
+                                                                                       java.lang.String&nbsp;handle)</PRE>
+<DL><DD>La funzione Norm_Provincia consente la ricerca in base alla descrizione o alla sigla della provincia e in base al codice istat o nazionale.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>p_provincia</CODE> - String nome o sigla della provincia</DD>
+<DD><CODE>p_cod_istat</CODE> - String eventuale Codice ISTAT della provincia</DD>
+<DD><CODE>p_cod_nazionale</CODE> - String eventuale Codice nazionale della provincia (agenzia del territorio)</DD>
+<DD><CODE>handle</CODE> - String handle di connessione al normalizzatore</DD>
+<DT><B>Returns:</B><DD>Norm_ProvinciaOutputRecordsetArray Restituisce un array contenente le province più simili ottenute tramite un algoritmo di ricerca. Se la provincia viene identificata univocamente l'array conterrà solo la provincia individuata. Altrimenti verranno restituite più province associate ad un grado di affidabilità del risultato (0 l'indirizzo è esatto, > 0 differisce dai parametri di input). Tutti i parametri passati in input verranno aggiunti come filtro per l'estrazione.</DD>
+</DL>
+<HR>
+
+<A NAME="initMapServerDefault()"></A>
+
+<H3>initMapServerDefault</H3>
+<PRE>
+public java.lang.String <B>initMapServerDefault</B>()</PRE>
+<DL><DD>Inizializza la connessione alla mappa utilizzando i valori di default del file di configurazione conf.xml<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>String ritorna l'idMap se la connessione è avvenuta con successo; "Errore nell'inizializzazione della mappa" in caso di errore di connessione. La stringa idMap dovrà essere utilizzata nelle successive invocazioni ai metodi esposti dal Web Service</DD>
+</DL>
+<HR>
+
+<A NAME="initMapServer2(int, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>initMapServer2</H3>
+<PRE>
+public java.lang.String <B>initMapServer2</B>(int&nbsp;mapServerType,
+                                       java.lang.String&nbsp;connString,
+                                       java.lang.String&nbsp;service,
+                                       java.lang.String&nbsp;version)</PRE>
+<DL><DD>Inizializza la connessione alla mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>mapServerType</CODE> - int tipologia di map server: 1=ArcIMS</DD>
+<DD><CODE>connString</CODE> - String stringa di connessione; i parametri sono separati da ";" e sono, nell'ordine, i seguenti: tipoConnessione - host - porta. Esempio: "tcp;localhost;5300"</DD>
+<DD><CODE>service</CODE> - String nome del servizio/mappa</DD>
+<DD><CODE>version</CODE> - String noi delle colonne da usare</DD>
+<DT><B>Returns:</B><DD>String ritorna l'idMap se la connessione è avvenuta con successo; "Errore di Connessione al Map Server! " in caso di errore di connessione; "Map server non riconosciuto" se il tipo di map server indicato non è tra quelli disponibili. La stringa idMap dovrà essere utilizzata nelle successive invocazioni ai metodi esposti dal Web Service</DD>
+</DL>
+<HR>
+
+<A NAME="initMapServer(int, java.lang.String, java.lang.String)"></A>
+
+<H3>initMapServer</H3>
+<PRE>
+public java.lang.String <B>initMapServer</B>(int&nbsp;mapServerType,
+                                      java.lang.String&nbsp;connString,
+                                      java.lang.String&nbsp;service)</PRE>
+<DL><DD>Inizializza la connessione alla mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>mapServerType</CODE> - int tipologia di map server: 1=ArcIMS</DD>
+<DD><CODE>connString</CODE> - String stringa di connessione; i parametri sono separati da ";" e sono, nell'ordine, i seguenti: tipoConnessione - host - porta. Esempio: "tcp;localhost;5300"</DD>
+<DD><CODE>service</CODE> - String nome del servizio/mappa</DD>
+<DT><B>Returns:</B><DD>String ritorna l'idMap se la connessione è avvenuta con successo; "Errore di Connessione al Map Server! " in caso di errore di connessione; "Map server non riconosciuto" se il tipo di map server indicato non è tra quelli disponibili. La stringa idMap dovrà essere utilizzata nelle successive invocazioni ai metodi esposti dal Web Service</DD>
+</DL>
+<HR>
+
+<A NAME="closeMapServer(java.lang.String)"></A>
+
+<H3>closeMapServer</H3>
+<PRE>
+public boolean <B>closeMapServer</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Chiude la connessione al mapserver<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>boolean</DD>
+</DL>
+<HR>
+
+<A NAME="isMapCadastre(java.lang.String)"></A>
+
+<H3>isMapCadastre</H3>
+<PRE>
+public boolean <B>isMapCadastre</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restituisce True se c'e' un layer areale con le Codifiche di Comune,Foglio,Mappale; i nomi di questi campi sono mappati sul file di configurazione conf.xml;<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>boolean True se c'e' un layer areale con le Codifiche di Comune,Foglio,Mappale</DD>
+</DL>
+<HR>
+
+<A NAME="isMeasuredGraph(java.lang.String)"></A>
+
+<H3>isMeasuredGraph</H3>
+<PRE>
+public boolean <B>isMeasuredGraph</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<A NAME="mapCoord(int, int, java.lang.String)"></A>
+
+<H3>mapCoord</H3>
+<PRE>
+public com.siteco.Coord <B>mapCoord</B>(int&nbsp;xImage,
+                                 int&nbsp;yImage,
+                                 java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restituisce le coordinate della mappa nel punto specificato dell'immagine<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>xImage</CODE> - int</DD>
+<DD><CODE>yImage</CODE> - int</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>Coord coordinate della mappa nel punto specificato dell'immagine</DD>
+</DL>
+<HR>
+
+<A NAME="GetScale(java.lang.String)"></A>
+
+<H3>GetScale</H3>
+<PRE>
+public double <B>GetScale</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restituisce la scala correntemente visualizzata<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>double</DD>
+</DL>
+<HR>
+
+<A NAME="markerFeature(java.lang.String, java.lang.String, boolean, java.lang.String)"></A>
+
+<H3>markerFeature</H3>
+<PRE>
+public com.siteco.MapURLs <B>markerFeature</B>(java.lang.String&nbsp;layerName,
+                                        java.lang.String&nbsp;where,
+                                        boolean&nbsp;makeZoom,
+                                        java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Evidenzia la primitiva ID_Feature del layer specificato ed eventualmente ci zoomma su<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>layerName</CODE> - String</DD>
+<DD><CODE>id_feature</CODE> - String</DD>
+<DD><CODE>makeZoom</CODE> - boolean</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+</DL>
+<HR>
+
+<A NAME="pan(int, int, java.lang.String)"></A>
+
+<H3>pan</H3>
+<PRE>
+public com.siteco.MapURLs <B>pan</B>(int&nbsp;direction,
+                              int&nbsp;step,
+                              java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue il pan della mappa restituendo l'URL della mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>direction</CODE> - int 1=N; 2=N-E; 3=E; 4=S-E; 5=S; 6=S-W; 7=W; 8=N-W</DD>
+<DD><CODE>step</CODE> - int</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String URL della mappa dopo il pan</DD>
+</DL>
+<HR>
+
+<A NAME="panImg(int, int, java.lang.String)"></A>
+
+<H3>panImg</H3>
+<PRE>
+public com.siteco.MapURLs <B>panImg</B>(int&nbsp;dx,
+                                 int&nbsp;dy,
+                                 java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue il pan della mappa restituendo l'URL della mappa a partire dal delta in pixel dell'immagine<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>int</CODE> - dx</DD>
+<DD><CODE>int</CODE> - dy</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String URL</DD>
+</DL>
+<HR>
+
+<A NAME="panMap(double, double, java.lang.String)"></A>
+
+<H3>panMap</H3>
+<PRE>
+public com.siteco.MapURLs <B>panMap</B>(double&nbsp;dx,
+                                 double&nbsp;dy,
+                                 java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue il pan della mappa restituendo l'URL della mappa a partire dal delta in unità di misura della mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>double</CODE> - dx</DD>
+<DD><CODE>double</CODE> - dy</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>URL della mappa dopo il pan</DD>
+</DL>
+<HR>
+
+<A NAME="queryParcel(double, double, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>queryParcel</H3>
+<PRE>
+public com.siteco.Particella <B>queryParcel</B>(double&nbsp;x,
+                                         double&nbsp;y,
+                                         java.lang.String&nbsp;parcelLayer,
+                                         java.lang.String&nbsp;comuneCol,
+                                         java.lang.String&nbsp;foglioCol,
+                                         java.lang.String&nbsp;mappaleCol,
+                                         java.lang.String&nbsp;shapeCol,
+                                         java.lang.String&nbsp;idConn)</PRE>
+<DL><DD>Interrogga il layer dei fogli catastali nel punto X,Y e restituisce la particella<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - double</DD>
+<DD><CODE>y</CODE> - double</DD>
+<DD><CODE>comuneCol</CODE> - String</DD>
+<DD><CODE>foglioCol</CODE> - String</DD>
+<DD><CODE>particellaCol</CODE> - String</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DT><B>Returns:</B><DD>Particella la particella catastale</DD>
+</DL>
+<HR>
+
+<A NAME="queryProg(double, double, java.lang.String, java.lang.String)"></A>
+
+<H3>queryProg</H3>
+<PRE>
+public com.siteco.Progressiva <B>queryProg</B>(double&nbsp;x,
+                                        double&nbsp;y,
+                                        java.lang.String&nbsp;asta,
+                                        java.lang.String&nbsp;idConn)</PRE>
+<DL><DD>Restituisce la progressiva ricavata dal punto di coordinate x e y<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - double</DD>
+<DD><CODE>y</CODE> - double</DD>
+<DD><CODE>asta</CODE> - String</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DT><B>Returns:</B><DD>Progressiva la progressiva ricavata dal punto di coordinate x e y</DD>
+</DL>
+<HR>
+
+<A NAME="projPT(double, double, java.lang.String, java.lang.String, java.lang.String, oracle.jdbc.OracleConnection, java.lang.String)"></A>
+
+<H3>projPT</H3>
+<PRE>
+private com.siteco.PtPrjM <B>projPT</B>(double&nbsp;x,
+                                 double&nbsp;y,
+                                 java.lang.String&nbsp;colID,
+                                 java.lang.String&nbsp;colGeom,
+                                 java.lang.String&nbsp;table,
+                                 oracle.jdbc.OracleConnection&nbsp;conn,
+                                 java.lang.String&nbsp;asta)</PRE>
+<DL><DD>projPT<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - double</DD>
+<DD><CODE>y</CODE> - double</DD>
+<DD><CODE>colID</CODE> - String</DD>
+<DD><CODE>colGeom</CODE> - String</DD>
+<DD><CODE>table</CODE> - String</DD>
+<DD><CODE>conn</CODE> - OracleConnection</DD>
+<DD><CODE>asta</CODE> - String</DD>
+<DT><B>Returns:</B><DD>PtPrjM</DD>
+</DL>
+<HR>
+
+<A NAME="queryXY(com.siteco.Progressiva, java.lang.String, java.lang.String)"></A>
+
+<H3>queryXY</H3>
+<PRE>
+public com.siteco.Coord <B>queryXY</B>(com.siteco.Progressiva&nbsp;prog,
+                                java.lang.String&nbsp;asta,
+                                java.lang.String&nbsp;idConn)</PRE>
+<DL><DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<A NAME="queryProgPerc(double, double, long, java.lang.String, java.lang.String)"></A>
+
+<H3>queryProgPerc</H3>
+<PRE>
+public com.siteco.Progressiva <B>queryProgPerc</B>(double&nbsp;x,
+                                            double&nbsp;y,
+                                            long&nbsp;idRoad,
+                                            java.lang.String&nbsp;asta,
+                                            java.lang.String&nbsp;idConn)</PRE>
+<DL><DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<A NAME="setImageSize(int, int, int, int, int, int, java.lang.String)"></A>
+
+<H3>setImageSize</H3>
+<PRE>
+public void <B>setImageSize</B>(int&nbsp;xImage,
+                         int&nbsp;yImage,
+                         int&nbsp;xImmLeg,
+                         int&nbsp;yImmLeg,
+                         int&nbsp;xImmOv,
+                         int&nbsp;yImmOv,
+                         java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Imposta le dimensioni dell'immagine della mappa, dell'immagine della legenda e dell'OV<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>xImage</CODE> - int</DD>
+<DD><CODE>yImage</CODE> - int</DD>
+<DD><CODE>xImmLeg</CODE> - int</DD>
+<DD><CODE>yImmLeg</CODE> - int</DD>
+<DD><CODE>xImmOv</CODE> - int</DD>
+<DD><CODE>yImmOv</CODE> - int</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+</DL>
+<HR>
+
+<A NAME="setAllLayersOn(java.lang.String)"></A>
+
+<H3>setAllLayersOn</H3>
+<PRE>
+public com.siteco.MapURLs <B>setAllLayersOn</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Setta tutti i layer on<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs</DD>
+</DL>
+<HR>
+
+<A NAME="setAllLayersOff(java.lang.String)"></A>
+
+<H3>setAllLayersOff</H3>
+<PRE>
+public com.siteco.MapURLs <B>setAllLayersOff</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Setta tutti i layer off<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs</DD>
+</DL>
+<HR>
+
+<A NAME="setMapLayerDefinition(com.siteco.ArrayOfGenLayer, java.lang.String)"></A>
+
+<H3>setMapLayerDefinition</H3>
+<PRE>
+public com.siteco.MapURLs <B>setMapLayerDefinition</B>(com.siteco.ArrayOfGenLayer&nbsp;layers,
+                                                java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Setta la collezione dei layers della mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>Layers la collezione dei layers della mappa</DD>
+</DL>
+<HR>
+
+<A NAME="zoomMaxEnvelope(java.lang.String)"></A>
+
+<H3>zoomMaxEnvelope</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomMaxEnvelope</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom alla massima estensione della mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa alla massima estensione</DD>
+</DL>
+<HR>
+
+<A NAME="zoomScale(int, java.lang.String)"></A>
+
+<H3>zoomScale</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomScale</B>(int&nbsp;zoom,
+                                    java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom alla scala indicata<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>zoom</CODE> - int</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa allo zoom indicato</DD>
+</DL>
+<HR>
+
+<A NAME="zoomPiu(java.lang.String)"></A>
+
+<H3>zoomPiu</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomPiu</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom +<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa allo zoom +</DD>
+</DL>
+<HR>
+
+<A NAME="zoomMeno(java.lang.String)"></A>
+
+<H3>zoomMeno</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomMeno</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom -<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa allo zoom -</DD>
+</DL>
+<HR>
+
+<A NAME="refreshMap(java.lang.String)"></A>
+
+<H3>refreshMap</H3>
+<PRE>
+public com.siteco.MapURLs <B>refreshMap</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue il refresh della mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToEnvelope(com.siteco.GenEnvelope, java.lang.String)"></A>
+
+<H3>zoomToEnvelope</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToEnvelope</B>(com.siteco.GenEnvelope&nbsp;genEnv,
+                                         java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom all'Envelope indicato<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>envelope</CODE> - Envelope</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa all'Envelope indicato</DD>
+</DL>
+<HR>
+
+<A NAME="getUnionMbr(java.awt.geom.Rectangle2D$Double, java.awt.geom.Rectangle2D$Double)"></A>
+
+<H3>getUnionMbr</H3>
+<PRE>
+private java.awt.geom.Rectangle2D$Double <B>getUnionMbr</B>(java.awt.geom.Rectangle2D$Double&nbsp;mbr,
+                                                     java.awt.geom.Rectangle2D$Double&nbsp;gelMBR)</PRE>
+<DL><DD>Privata (GEOIN) fa l'unione dei rettangoli<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>mbr</CODE> - Double</DD>
+<DD><CODE>gelMBR</CODE> - Double</DD>
+<DT><B>Returns:</B><DD>Double</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToEventOra(long, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>zoomToEventOra</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToEventOra</B>(long&nbsp;id_ev,
+                                         java.lang.String&nbsp;tagLayer,
+                                         java.lang.String&nbsp;asta,
+                                         java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom sull'evento indicato (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>id_ev</CODE> - long</DD>
+<DD><CODE>asta</CODE> - </DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa all'Envelope indicato</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToPerc(long, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>zoomToPerc</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToPerc</B>(long&nbsp;Perc_id,
+                                     java.lang.String&nbsp;asta,
+                                     java.lang.String&nbsp;idConn,
+                                     java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom sul percorso indicato<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>id_ev</CODE> - long</DD>
+<DD><CODE>asta</CODE> - </DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa all'Envelope indicato</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToPercOra(long, java.lang.String, java.lang.String)"></A>
+
+<H3>zoomToPercOra</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToPercOra</B>(long&nbsp;Perc_id,
+                                        java.lang.String&nbsp;asta,
+                                        java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom sul percorso indicato (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>id_ev</CODE> - long</DD>
+<DD><CODE>asta</CODE> - </DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa all'Envelope indicato</DD>
+</DL>
+<HR>
+
+<A NAME="zoomTo2ProgOra(com.siteco.Progressiva, com.siteco.Progressiva, java.lang.String, java.lang.String)"></A>
+
+<H3>zoomTo2ProgOra</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomTo2ProgOra</B>(com.siteco.Progressiva&nbsp;prg_ini,
+                                         com.siteco.Progressiva&nbsp;prg_fin,
+                                         java.lang.String&nbsp;asta,
+                                         java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom finestra prendendo come angoli le coordinate di due progressive (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>prg_ini</CODE> - Progressiva</DD>
+<DD><CODE>prg_fin</CODE> - Progressiva</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToEvent(boolean, double, double, double, double, java.lang.String, long, java.lang.String, com.siteco.Progressiva, com.siteco.Progressiva, int, java.lang.String, java.lang.String)"></A>
+
+<H3>zoomToEvent</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToEvent</B>(boolean&nbsp;isPuntuale,
+                                      double&nbsp;x1,
+                                      double&nbsp;y1,
+                                      double&nbsp;x2,
+                                      double&nbsp;y2,
+                                      java.lang.String&nbsp;testo,
+                                      long&nbsp;id_ev,
+                                      java.lang.String&nbsp;tagLayer,
+                                      com.siteco.Progressiva&nbsp;p1,
+                                      com.siteco.Progressiva&nbsp;p2,
+                                      int&nbsp;tol,
+                                      java.lang.String&nbsp;idMap,
+                                      java.lang.String&nbsp;idConn)</PRE>
+<DL><DD>Esegue lo zoom sull'evento indicato, prima verificando se sono fornite le coordinate, poi l'id dell'evento con l'eventuale layer ed infine le progressive<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>isPuntuale</CODE> - boolean</DD>
+<DD><CODE>x1</CODE> - double</DD>
+<DD><CODE>y1</CODE> - double</DD>
+<DD><CODE>x2</CODE> - double</DD>
+<DD><CODE>y2</CODE> - double</DD>
+<DD><CODE>hasLayersEventi</CODE> - boolean</DD>
+<DD><CODE>id_ev</CODE> - long</DD>
+<DD><CODE>tagLayer</CODE> - String</DD>
+<DD><CODE>p1</CODE> - Progressiva</DD>
+<DD><CODE>p2</CODE> - Progressiva</DD>
+<DD><CODE>tol</CODE> - int</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa all'Envelope indicato</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToParcel(com.siteco.Particella, java.lang.String)"></A>
+
+<H3>zoomToParcel</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToParcel</B>(com.siteco.Particella&nbsp;particella,
+                                       java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom sulla particella indicata<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>particella</CODE> - Particella</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa sulla particella indicata</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToProg(com.siteco.Progressiva, int, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>zoomToProg</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToProg</B>(com.siteco.Progressiva&nbsp;progressiva,
+                                     int&nbsp;zoom,
+                                     java.lang.String&nbsp;asta,
+                                     java.lang.String&nbsp;idConn,
+                                     java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom sulla progressiva indicata (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>progressiva</CODE> - Progressiva</DD>
+<DD><CODE>zoom</CODE> - int</DD>
+<DD><CODE>asta</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa sulla progressiva indicata</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToXYImg(int, int, int, java.lang.String)"></A>
+
+<H3>zoomToXYImg</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToXYImg</B>(int&nbsp;x,
+                                      int&nbsp;y,
+                                      int&nbsp;zoom,
+                                      java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom sulle coordinate imagine indicate<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - int</DD>
+<DD><CODE>y</CODE> - int</DD>
+<DD><CODE>zoom</CODE> - int</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa sulle coordinate indicate</DD>
+</DL>
+<HR>
+
+<A NAME="zoomToXYMap(double, double, int, java.lang.String)"></A>
+
+<H3>zoomToXYMap</H3>
+<PRE>
+public com.siteco.MapURLs <B>zoomToXYMap</B>(double&nbsp;x,
+                                      double&nbsp;y,
+                                      int&nbsp;zoom,
+                                      java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Esegue lo zoom sulle coordinate mappa indicate<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - double</DD>
+<DD><CODE>y</CODE> - double</DD>
+<DD><CODE>zoom</CODE> - int</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs gli URL della mappa sulle coordinate indicate</DD>
+</DL>
+<HR>
+
+<A NAME="initLRS(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>initLRS</H3>
+<PRE>
+public java.lang.String <B>initLRS</B>(int&nbsp;tipoLRS,
+                                java.lang.String&nbsp;user,
+                                java.lang.String&nbsp;pwd,
+                                java.lang.String&nbsp;connString,
+                                java.lang.String&nbsp;roadLayer,
+                                java.lang.String&nbsp;geometryCol,
+                                java.lang.String&nbsp;idCol)</PRE>
+<DL><DD>Esegue una connessione diretta ad un DBMS Oracle Spatial<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>tipoLRS</CODE> - String 1=Oracle, 2=SDE, 3=ShapeFile, 4=Abaco</DD>
+<DD><CODE>user</CODE> - String</DD>
+<DD><CODE>pwd</CODE> - String</DD>
+<DD><CODE>schema</CODE> - String</DD>
+<DD><CODE>connString</CODE> - String stringa di connessione; deve essere nella forma "host:port:sid"</DD>
+<DD><CODE>roadLayer</CODE> - String</DD>
+<DD><CODE>parcelLayer</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String L'idConn associata alla OracleConnection; "Errore nella connessione ad Oracle" altrimenti</DD>
+</DL>
+<HR>
+
+<A NAME="closeLRS(java.lang.String)"></A>
+
+<H3>closeLRS</H3>
+<PRE>
+public boolean <B>closeLRS</B>(java.lang.String&nbsp;idConn)</PRE>
+<DL><DD>Chiude la connessione al gestore della segmentazione dinamica<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idConn</CODE> - String</DD>
+<DT><B>Returns:</B><DD>boolean</DD>
+</DL>
+<HR>
+
+<A NAME="initLRSPool()"></A>
+
+<H3>initLRSPool</H3>
+<PRE>
+private oracle.jdbc.OracleConnection <B>initLRSPool</B>()</PRE>
+<DL><DD>Esegue una connessione ad un pool di connessioni Oracle<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>OracleConnection La connessione ti tipo OracleConnection; null altrimenti</DD>
+</DL>
+<HR>
+
+<A NAME="closeLRS(oracle.jdbc.OracleConnection)"></A>
+
+<H3>closeLRS</H3>
+<PRE>
+private int <B>closeLRS</B>(oracle.jdbc.OracleConnection&nbsp;conn)</PRE>
+<DL><DD>Chiude una connessione ad Oracle diretta o appartenente ad un pool<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>conn</CODE> - OracleConnection</DD>
+<DT><B>Returns:</B><DD>int 0 se ok, -1 altrimenti</DD>
+</DL>
+<HR>
+
+<A NAME="selectObjs(com.siteco.ArrayOfObjsInLayer, java.lang.String)"></A>
+
+<H3>selectObjs</H3>
+<PRE>
+public com.siteco.MapURLs <B>selectObjs</B>(com.siteco.ArrayOfObjsInLayer&nbsp;oil,
+                                     java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>seleziona ed evidenzia gli oggetti specificati<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>selObjs</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>MapURLs</DD>
+</DL>
+<HR>
+
+<A NAME="queryPtOra(double, double, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>queryPtOra</H3>
+<PRE>
+public long <B>queryPtOra</B>(double&nbsp;x,
+                       double&nbsp;y,
+                       java.lang.String&nbsp;roadTable,
+                       java.lang.String&nbsp;geomCol,
+                       java.lang.String&nbsp;idCol,
+                       java.lang.String&nbsp;asta)</PRE>
+<DL><DD>Restituisce l'EVE_ID + vicino al punto specificato (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - double</DD>
+<DD><CODE>y</CODE> - double</DD>
+<DD><CODE>roadTable</CODE> - String</DD>
+<DD><CODE>geomCol</CODE> - String</DD>
+<DD><CODE>idCol</CODE> - String</DD>
+<DD><CODE>asta</CODE> - String</DD>
+<DT><B>Returns:</B><DD>long</DD>
+</DL>
+<HR>
+
+<A NAME="queryPt(double, double, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>queryPt</H3>
+<PRE>
+public com.siteco.ArrayOfObjsInLayer <B>queryPt</B>(double&nbsp;x,
+                                             double&nbsp;y,
+                                             java.lang.String&nbsp;layer,
+                                             java.lang.String&nbsp;idCol,
+                                             java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Ricava gli oggetti in corrispondenza al punto selezionato<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - double</DD>
+<DD><CODE>y</CODE> - double</DD>
+<DD><CODE>layer</CODE> - String</DD>
+<DD><CODE>idCol</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>ArrayOfObjsInLayer</DD>
+</DL>
+<HR>
+
+<A NAME="queryPt2(double, double, com.siteco.ArrayOfGenLayer, java.lang.String, int, java.lang.String)"></A>
+
+<H3>queryPt2</H3>
+<PRE>
+public com.siteco.ArrayOfObjsInLayer <B>queryPt2</B>(double&nbsp;x,
+                                              double&nbsp;y,
+                                              com.siteco.ArrayOfGenLayer&nbsp;layers,
+                                              java.lang.String&nbsp;idCol,
+                                              int&nbsp;maxResult,
+                                              java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Ricava gli oggetti in corrispondenza al punto selezionato<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - double</DD>
+<DD><CODE>y</CODE> - double</DD>
+<DD><CODE>layer</CODE> - String</DD>
+<DD><CODE>idCol</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>ArrayOfObjsInLayer</DD>
+</DL>
+<HR>
+
+<A NAME="queryRectOra_Old(double, double, double, double, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>queryRectOra_Old</H3>
+<PRE>
+private java.lang.String <B>queryRectOra_Old</B>(double&nbsp;x1,
+                                          double&nbsp;y1,
+                                          double&nbsp;x2,
+                                          double&nbsp;y2,
+                                          java.lang.String&nbsp;roadTable,
+                                          java.lang.String&nbsp;geomCol,
+                                          java.lang.String&nbsp;idCol,
+                                          java.lang.String&nbsp;idConn)</PRE>
+<DL><DD>Interroga quali feature visibili sono nel rettangolo specificato (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x1</CODE> - double</DD>
+<DD><CODE>y1</CODE> - double</DD>
+<DD><CODE>x2</CODE> - double</DD>
+<DD><CODE>y2</CODE> - double</DD>
+<DD><CODE>roadTable</CODE> - String</DD>
+<DD><CODE>geomCol</CODE> - String</DD>
+<DD><CODE>idCol</CODE> - String</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String</DD>
+</DL>
+<HR>
+
+<A NAME="queryRectOra(double, double, double, double, java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>queryRectOra</H3>
+<PRE>
+public com.siteco.ObjsInLayer <B>queryRectOra</B>(double&nbsp;x1,
+                                           double&nbsp;y1,
+                                           double&nbsp;x2,
+                                           double&nbsp;y2,
+                                           java.lang.String&nbsp;roadTable,
+                                           java.lang.String&nbsp;geomCol,
+                                           java.lang.String&nbsp;idCol,
+                                           java.lang.String&nbsp;asta)</PRE>
+<DL><DD>Interroga quali feature visibili sono nel rettangolo specificato (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x1</CODE> - double</DD>
+<DD><CODE>y1</CODE> - double</DD>
+<DD><CODE>x2</CODE> - double</DD>
+<DD><CODE>y2</CODE> - double</DD>
+<DD><CODE>roadTable</CODE> - String</DD>
+<DD><CODE>geomCol</CODE> - String</DD>
+<DD><CODE>idCol</CODE> - String</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String</DD>
+</DL>
+<HR>
+
+<A NAME="queryPtEveOra(double, double, java.lang.String, java.lang.String)"></A>
+
+<H3>queryPtEveOra</H3>
+<PRE>
+public long <B>queryPtEveOra</B>(double&nbsp;x,
+                          double&nbsp;y,
+                          java.lang.String&nbsp;asta,
+                          java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restituisce l'EVE_ID + vicino al punto specificato (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - double</DD>
+<DD><CODE>y</CODE> - double</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>long</DD>
+</DL>
+<HR>
+
+<A NAME="queryRectEveOra_Old(double, double, double, double, java.lang.String, java.lang.String)"></A>
+
+<H3>queryRectEveOra_Old</H3>
+<PRE>
+private java.lang.String <B>queryRectEveOra_Old</B>(double&nbsp;x1,
+                                             double&nbsp;y1,
+                                             double&nbsp;x2,
+                                             double&nbsp;y2,
+                                             java.lang.String&nbsp;idConn,
+                                             java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Interroga quali eventi ci sono nel rettangolo specificato (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x1</CODE> - double</DD>
+<DD><CODE>y1</CODE> - double</DD>
+<DD><CODE>x2</CODE> - double</DD>
+<DD><CODE>y2</CODE> - double</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String</DD>
+</DL>
+<HR>
+
+<A NAME="queryRectEveOra(double, double, double, double, java.lang.String, java.lang.String)"></A>
+
+<H3>queryRectEveOra</H3>
+<PRE>
+public com.siteco.ArrayOfObjsInLayer <B>queryRectEveOra</B>(double&nbsp;x1,
+                                                     double&nbsp;y1,
+                                                     double&nbsp;x2,
+                                                     double&nbsp;y2,
+                                                     java.lang.String&nbsp;asta,
+                                                     java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Interroga quali eventi ci sono nel rettangolo specificato (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x1</CODE> - double</DD>
+<DD><CODE>y1</CODE> - double</DD>
+<DD><CODE>x2</CODE> - double</DD>
+<DD><CODE>y2</CODE> - double</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String</DD>
+</DL>
+<HR>
+
+<A NAME="getEnvEveOra(long, java.lang.String)"></A>
+
+<H3>getEnvEveOra</H3>
+<PRE>
+public com.siteco.GenEnvelope <B>getEnvEveOra</B>(long&nbsp;eve_id,
+                                           java.lang.String&nbsp;asta)</PRE>
+<DL><DD>Mi restituisce l'envelope dell'evento specificato. Nel caso di puntuali mi da un box di 500 mt. (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>eve_id</CODE> - long</DD>
+<DD><CODE>asta</CODE> - String</DD>
+<DT><B>Returns:</B><DD>GenEnvelope</DD>
+</DL>
+<HR>
+
+<A NAME="getEnvOra(java.lang.String, int, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>getEnvOra</H3>
+<PRE>
+private com.siteco.GenEnvelope <B>getEnvOra</B>(java.lang.String&nbsp;asta,
+                                         int&nbsp;dim,
+                                         java.lang.String&nbsp;GeomCol,
+                                         java.lang.String&nbsp;From,
+                                         java.lang.String&nbsp;Where)</PRE>
+<DL><DD>getEnvOra<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idConn</CODE> - String connessione LRS</DD>
+<DD><CODE>dim</CODE> - int dimensione della geometria</DD>
+<DD><CODE>GeomCol</CODE> - String colonna della geometria</DD>
+<DD><CODE>From</CODE> - String tabella con la geometria</DD>
+<DD><CODE>Where</CODE> - String clusola where per selezionare l'oggetto</DD>
+<DT><B>Returns:</B><DD>GenEnvelope box dell'oggetto</DD>
+</DL>
+<HR>
+
+<A NAME="getEnvPerc(long, java.lang.String, java.lang.String)"></A>
+
+<H3>getEnvPerc</H3>
+<PRE>
+public com.siteco.GenEnvelope <B>getEnvPerc</B>(long&nbsp;Perc,
+                                         java.lang.String&nbsp;asta,
+                                         java.lang.String&nbsp;idConn)</PRE>
+<DL><DD>Mi restituisce il box del percorso (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>Perc</CODE> - long</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DT><B>Returns:</B><DD>GenEnvelope</DD>
+</DL>
+<HR>
+
+<A NAME="getEnvPercOra(long, java.lang.String)"></A>
+
+<H3>getEnvPercOra</H3>
+<PRE>
+public com.siteco.GenEnvelope <B>getEnvPercOra</B>(long&nbsp;Perc,
+                                            java.lang.String&nbsp;asta)</PRE>
+<DL><DD>Mi restituisce il box del percorso (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>Perc</CODE> - long</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DT><B>Returns:</B><DD>GenEnvelope</DD>
+</DL>
+<HR>
+
+<A NAME="queryRect(double, double, double, double, java.lang.String, java.lang.String, java.lang.String)"></A>
+
+<H3>queryRect</H3>
+<PRE>
+public com.siteco.ArrayOfObjsInLayer <B>queryRect</B>(double&nbsp;x1,
+                                               double&nbsp;y1,
+                                               double&nbsp;x2,
+                                               double&nbsp;y2,
+                                               java.lang.String&nbsp;layer,
+                                               java.lang.String&nbsp;idCol,
+                                               java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Mi restituisce le feature che sono visibili nel rettangolo e layer specificato<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x1</CODE> - double</DD>
+<DD><CODE>y1</CODE> - double</DD>
+<DD><CODE>x2</CODE> - double</DD>
+<DD><CODE>y2</CODE> - double</DD>
+<DD><CODE>layer</CODE> - String</DD>
+<DD><CODE>idCol</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String</DD>
+</DL>
+<HR>
+
+<A NAME="queryRect2(double, double, double, double, com.siteco.ArrayOfGenLayer, java.lang.String, int, java.lang.String)"></A>
+
+<H3>queryRect2</H3>
+<PRE>
+public com.siteco.ArrayOfObjsInLayer <B>queryRect2</B>(double&nbsp;x1,
+                                                double&nbsp;y1,
+                                                double&nbsp;x2,
+                                                double&nbsp;y2,
+                                                com.siteco.ArrayOfGenLayer&nbsp;layers,
+                                                java.lang.String&nbsp;idCol,
+                                                int&nbsp;maxResult,
+                                                java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Mi restituisce le feature che sono visibili nel rettangolo e layer specificato<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x1</CODE> - double</DD>
+<DD><CODE>y1</CODE> - double</DD>
+<DD><CODE>x2</CODE> - double</DD>
+<DD><CODE>y2</CODE> - double</DD>
+<DD><CODE>layer</CODE> - String</DD>
+<DD><CODE>idCol</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String</DD>
+</DL>
+<HR>
+
+<A NAME="cancellaHighlightLayers(java.lang.String)"></A>
+
+<H3>cancellaHighlightLayers</H3>
+<PRE>
+public com.siteco.MapURLs <B>cancellaHighlightLayers</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Cancella gli Highlight layers dalla mappa<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+</DL>
+<HR>
+
+<A NAME="initDynSeg(java.lang.String, java.lang.String)"></A>
+
+<H3>initDynSeg</H3>
+<PRE>
+public java.lang.String <B>initDynSeg</B>(java.lang.String&nbsp;shapefile,
+                                   java.lang.String&nbsp;routeField)</PRE>
+<DL><DD>inizializza il modulo che gestisce la segmentazione dinamica in shapefile (in assenza di SDO/SDE)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>shapefile</CODE> - String Nome delle shapefile che contiene il grafo dei percorsi</DD>
+<DT><B>Returns:</B><DD>String</DD>
+</DL>
+<HR>
+
+<A NAME="queryXYShape(com.siteco.Progressiva, java.lang.String, java.lang.String)"></A>
+
+<H3>queryXYShape</H3>
+<PRE>
+public com.siteco.Coord <B>queryXYShape</B>(com.siteco.Progressiva&nbsp;prog,
+                                     java.lang.String&nbsp;idConn,
+                                     java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restituisce le coordinate di X e Y relative alla progressiva data (Funziona con SDO+LRS)<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>prog</CODE> - Progressiva</DD>
+<DD><CODE>idConn</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>Coord</DD>
+</DL>
+<HR>
+
+<A NAME="getIPPubblico(java.lang.String)"></A>
+
+<H3>getIPPubblico</H3>
+<PRE>
+public java.lang.String <B>getIPPubblico</B>(java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Restituisce l'IP pubblico<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>idMap</CODE> - String</DD>
+<DT><B>Returns:</B><DD>String l'IP pubblico</DD>
+</DL>
+<HR>
+
+<A NAME="setIPPubblico(java.lang.String, java.lang.String)"></A>
+
+<H3>setIPPubblico</H3>
+<PRE>
+public void <B>setIPPubblico</B>(java.lang.String&nbsp;ip,
+                          java.lang.String&nbsp;idMap)</PRE>
+<DL><DD>Setta l'IP pubblico<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>ip</CODE> - String</DD>
+<DD><CODE>idMap</CODE> - String</DD>
+</DL>
+<HR>
+
+</BODY>
+</HTML>

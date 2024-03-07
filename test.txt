@@ -1,0 +1,49 @@
+<web-app id="WebApp_ID" version="2.5" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" >
+<web-app version="2.5" >
+
+idMap: 3BC2B008ic3DC3ADK4C38FUC2A4m823C386
+       3BC2B008ic3DC3ADK4C38FUC2A4m823C386
+handle: 25946D51B50164B807E0569A35286B44721888B2F100BE3F
+
+http://localhost:8090/localizzatore_rest/SitecoWS/initLRS?tipoLRS=1&user=csrmar&pwd=csrmar&connString=192.168.7.206:1521:ora10e&roadLayer=RDSROADGEOMETRY&geometryCol=SHAPE&idCol=ID_ROAD
+http://localhost:8090/localizzatore_rest/SitecoWS/initMapServer?mapServerType=6&connString=http://srv-gis:8399/arcgis/services/CSRMAR/MapServer&service=
+http://localhost:8090/localizzatore_rest/SitecoWS/initNormalizzatore?address=http://srv-gis:8080/eSoapDispenser&user=test1&password=test1
+http://localhost:8090/localizzatore_rest/SitecoWS/drawMarker?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386&xCoord=281814&yCoord=4861475&pan=true&testo=pincopallo
+http://localhost:8090/localizzatore_rest/SitecoWS/getScale?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386
+http://localhost:8090/localizzatore_rest/SitecoWS/deleteMarker?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386&idMarker=-99
+http://localhost:8090/localizzatore_rest/SitecoWS/getMapEnvelope?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386
+http://localhost:8090/localizzatore_rest/SitecoWS/zoomToEnvelope?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386
+http://localhost:8090/localizzatore_rest/SitecoWS/cancellaIncidente?idConn=3BC2B008ic3DC3ADK4C38FUC2A4m823C386&where=id_incidente=1&incidentiLayer=INCIDENTI
+http://localhost:8090/localizzatore_rest/SitecoWS/closeLRS?idConn=jfidfgjiedgjdigdgjdig
+http://localhost:8090/localizzatore_rest/SitecoWS/closeMapServer?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386
+http://localhost:8090/localizzatore_rest/SitecoWS/mapCoord?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386&xImage=50&yImage=50
+http://localhost:8090/localizzatore_rest/SitecoWS/getMapLayersDefinitions?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386
+http://localhost:8090/localizzatore_rest/SitecoWS/getMapLayersVisible?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386
+http://localhost:8090/localizzatore_rest/SitecoWS/panImg?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386&dx=1000&dy=1000
+http://localhost:8090/localizzatore_rest/SitecoWS/panMap?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386&dx=1000.500dy=1000.5999
+http://localhost:8090/localizzatore_rest/SitecoWS/querRect4?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386&x1=275941&y1=4853243&x2=276009&y2=4853318&layers=Accessi&maxResult=100
+http://localhost:8090/localizzatore_rest/SitecoWS/setMapLayersVisible?idMap=3BC2B008ic3DC3ADK4C38FUC2A4m823C386&visibleLayers=Accessi&visibleLayers=Verde
+
+
+http://localhost:8090/localizzatore_rest/SitecoWS/normComune1?handle=25946D51B50164B807E0569A35286B44721888B2F100BE3F&p_toponimo=faenza
+http://localhost:8090/localizzatore_rest/SitecoWS/normComune2?handle=25946D51B50164B807E0569A35286B44721888B2F100BE3F&p_toponimo=faenza
+http://localhost:8090/localizzatore_rest/SitecoWS/normIncrocio?handle=25946D51B50164B807E0569A35286B44721888B2F100BE3F&p_toponimo1=via mazzini&p_toponimo2=via cavour&p_comune1=faenza&p_comune2=faenza&p_provincia1=ra&p_provincia2=ra&p_tipo_coord=utma
+http://localhost:8090/localizzatore_rest/SitecoWS/normIndirizzo?handle=25946D51B50164B807E0569A35286B44721888B2F100BE3F&p_toponimo=via mazzini&p_comune=faenza&p_provincia=ra&tipo_coord=utma&p_civico=13
+http://localhost:8090/localizzatore_rest/SitecoWS/normIndirizzo1?handle=25946D51B50164B807E0569A35286B44721888B2F100BE3F&p_toponimo=via mazzini 11&p_comune=faenza&p_provincia=ra&tipo_coord=utma
+http://localhost:8090/localizzatore_rest/SitecoWS/normIndirizzo2?handle=25946D51B50164B807E0569A35286B44721888B2F100BE3F&p_toponimo=via mazzini&p_civico=11&p_comune=faenza&p_provincia=ra&tipo_coord=utma
+http://localhost:8090/localizzatore_rest/SitecoWS/normInfoEntitaStradario?handle=25946D51B50164B81667D79A2526F7ED5566D8762BF3AA4D&p_entita=sp1&p_tipo_coord=utma
+http://localhost:8090/localizzatore_rest/SitecoWS/normStradario?handle=25946D51B50164B81667D79A2526F7ED5566D8762BF3AA4D&p_toponimo=san alberto&p_tipo_coord=utma&p_comune= comune generico&p_provinca=ra&p_desc_uff=s&p_tipo_strada=sp
+
+
+
+<?xml version="1.0" encoding="UTF-8"?> version="1.0" encoding="UTF-8" standalone="yes"
+    <genEnvelope> 
+       <maxX>419063.87831621733</maxX> 
+       <maxY>4877795.470335886</maxY> 
+       <minX>265494.6420110781</minX> 
+       <minY>4724226.234030746</minY> 
+   </genEnvelope>
+   
+   
+   
+norm 25946D51B50164B8CA9FFA841A74461E274EEA166CDBBA92

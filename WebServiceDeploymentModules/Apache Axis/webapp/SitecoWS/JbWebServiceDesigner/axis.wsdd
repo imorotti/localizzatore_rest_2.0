@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns:java="http://xml.apache.org/axis/wsdd/providers/java"
+    xmlns:handler="http://xml.apache.org/axis/wsdd/providers/handler"
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="defaultClientConfig" xsi:type="deployment">
+    <globalConfiguration name="GlobalConfiguration1" type="" regenerateElement="false">
+        <parameter name="disablePrettyXML" value="true" regenerateElement="false"/>
+        <parameter name="dotNetSoapEncFix" value="true" regenerateElement="false"/>
+        <requestFlow name="RequestFlow1" type="" regenerateElement="false">
+            <handler name="Handler1"
+                type="java:org.apache.axis.handlers.JWSHandler" regenerateElement="false">
+                <parameter name="scope" value="session" regenerateElement="false"/>
+            </handler>
+            <handler name="Handler2"
+                type="java:org.apache.axis.handlers.JWSHandler" regenerateElement="false">
+                <parameter name="scope" value="request" regenerateElement="false"/>
+                <parameter name="extension" value=".jwr" regenerateElement="false"/>
+            </handler>
+            <handler name="Handler3"
+                type="java:org.apache.axis.handlers.JWSHandler" regenerateElement="false">
+                <parameter name="scope" value="session" regenerateElement="false"/>
+            </handler>
+            <handler name="Handler4"
+                type="java:org.apache.axis.handlers.JWSHandler" regenerateElement="false">
+                <parameter name="scope" value="request" regenerateElement="false"/>
+                <parameter name="extension" value=".jwr" regenerateElement="false"/>
+            </handler>
+            <handler name="Handler5"
+                type="java:org.apache.axis.handlers.SOAPMonitorHandler" regenerateElement="false"/>
+        </requestFlow>
+    </globalConfiguration>
+    <handler name="URLMapper"
+        type="java:org.apache.axis.handlers.http.URLMapper" regenerateElement="false"/>
+    <handler name="LocalResponder"
+        type="java:org.apache.axis.transport.local.LocalResponder" regenerateElement="false"/>
+    <handler name="Authenticate"
+        type="java:org.apache.axis.handlers.SimpleAuthenticationHandler" regenerateElement="false"/>
+    <transport name="http" type="" regenerateElement="false">
+        <parameter name="qs:list"
+            value="org.apache.axis.transport.http.QSListHandler" regenerateElement="false"/>
+        <parameter name="qs:method"
+            value="org.apache.axis.transport.http.QSMethodHandler" regenerateElement="false"/>
+        <parameter name="qs:wsdl"
+            value="org.apache.axis.transport.http.QSWSDLHandler" regenerateElement="false"/>
+        <requestFlow name="RequestFlow1" type="" regenerateElement="false">
+            <handler name="Handler1" type="URLMapper" regenerateElement="false"/>
+            <handler name="Handler2"
+                type="java:org.apache.axis.handlers.http.HTTPAuthHandler" regenerateElement="false"/>
+        </requestFlow>
+    </transport>
+    <transport name="local" type="" regenerateElement="false">
+        <responseFlow name="ResponseFlow1" type="" regenerateElement="false">
+            <handler name="Handler1" type="LocalResponder" regenerateElement="false"/>
+        </responseFlow>
+    </transport>
+    <service name="AdminService" type="" regenerateElement="false"
+        provider="java:MSG" validate="false">
+        <parameter name="allowedMethods" value="AdminService" regenerateElement="false"/>
+        <parameter name="enableRemoteAdmin" value="false" regenerateElement="false"/>
+        <parameter name="className" value="org.apache.axis.utils.Admin" regenerateElement="false"/>
+        <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+    </service>
+    <service name="Version" type="" regenerateElement="false"
+        provider="java:RPC" validate="false">
+        <parameter name="allowedMethods" value="getVersion" regenerateElement="false"/>
+        <parameter name="className" value="org.apache.axis.Version" regenerateElement="false"/>
+    </service>
+    <service name="SitecoWS" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal" validate="true">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className" value="com.siteco.SitecoWS" regenerateElement="false"/>
+        <parameter name="allowedMethods" value="*" regenerateElement="true"/>
+        <namespace>http://siteco.com</namespace>
+        <typeMapping xmlns:ns1="http://siteco.com" encodingStyle=""
+            qname="ns1:NormInfoEntitaStradarioRecord"
+            languageSpecificType="java:com.siteco.NormInfoEntitaStradarioRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormInfoEntitaStradarioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns2="http://siteco.com" encodingStyle=""
+            qname="ns2:ArrayOfInt"
+            languageSpecificType="java:com.siteco.ArrayOfInt"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfInt" regenerateElement="true"/>
+        <typeMapping xmlns:ns3="http://siteco.com" encodingStyle=""
+            qname="ns3:ArrayOfNormIndirizzo1Record"
+            languageSpecificType="java:com.siteco.ArrayOfNormIndirizzo1Record"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormIndirizzo1Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns4="http://siteco.com" encodingStyle=""
+            qname="ns4:ArrayOfNormIndirizzo2Record"
+            languageSpecificType="java:com.siteco.ArrayOfNormIndirizzo2Record"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormIndirizzo2Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns5="http://siteco.com" encodingStyle=""
+            qname="ns5:Particella"
+            languageSpecificType="java:com.siteco.Particella"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="Particella" regenerateElement="true"/>
+        <typeMapping xmlns:ns6="http://siteco.com" encodingStyle=""
+            qname="ns6:ArrayOfSimbolo"
+            languageSpecificType="java:com.siteco.ArrayOfSimbolo"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfSimbolo" regenerateElement="true"/>
+        <typeMapping xmlns:ns7="http://siteco.com" encodingStyle=""
+            qname="ns7:NormStradarioRecord"
+            languageSpecificType="java:com.siteco.NormStradarioRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormStradarioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns8="http://siteco.com" encodingStyle=""
+            qname="ns8:ObjsInLayer2"
+            languageSpecificType="java:com.siteco.ObjsInLayer2"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ObjsInLayer2" regenerateElement="true"/>
+        <typeMapping xmlns:ns9="http://siteco.com" encodingStyle=""
+            qname="ns9:NormIncrocioRecord"
+            languageSpecificType="java:com.siteco.NormIncrocioRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormIncrocioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns10="http://siteco.com" encodingStyle=""
+            qname="ns10:Simbologia"
+            languageSpecificType="java:com.siteco.Simbologia"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="Simbologia" regenerateElement="true"/>
+        <typeMapping xmlns:ns11="http://siteco.com" encodingStyle=""
+            qname="ns11:MapURLs"
+            languageSpecificType="java:com.siteco.MapURLs"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="MapURLs" regenerateElement="true"/>
+        <typeMapping xmlns:ns12="http://siteco.com" encodingStyle=""
+            qname="ns12:ArrayOfObjsInLayer"
+            languageSpecificType="java:com.siteco.ArrayOfObjsInLayer"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfObjsInLayer" regenerateElement="true"/>
+        <typeMapping xmlns:ns13="http://siteco.com" encodingStyle=""
+            qname="ns13:ArrayOfObjsInLayer3"
+            languageSpecificType="java:com.siteco.ArrayOfObjsInLayer3"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfObjsInLayer3" regenerateElement="true"/>
+        <typeMapping xmlns:ns14="http://siteco.com" encodingStyle=""
+            qname="ns14:Progressiva"
+            languageSpecificType="java:com.siteco.Progressiva"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="Progressiva" regenerateElement="true"/>
+        <typeMapping xmlns:ns15="http://siteco.com" encodingStyle=""
+            qname="ns15:ArrayOfNormComune1Record"
+            languageSpecificType="java:com.siteco.ArrayOfNormComune1Record"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormComune1Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns16="http://siteco.com" encodingStyle=""
+            qname="ns16:NormProvinciaRecord"
+            languageSpecificType="java:com.siteco.NormProvinciaRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormProvinciaRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns17="http://siteco.com" encodingStyle=""
+            qname="ns17:ObjsInLayer3"
+            languageSpecificType="java:com.siteco.ObjsInLayer3"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ObjsInLayer3" regenerateElement="true"/>
+        <typeMapping xmlns:ns18="http://siteco.com" encodingStyle=""
+            qname="ns18:ArrayOfString"
+            languageSpecificType="java:com.siteco.ArrayOfString"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfString" regenerateElement="true"/>
+        <typeMapping xmlns:ns19="http://siteco.com" encodingStyle=""
+            qname="ns19:ArrayOfNormIncrocioRecord"
+            languageSpecificType="java:com.siteco.ArrayOfNormIncrocioRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormIncrocioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns20="http://siteco.com" encodingStyle=""
+            qname="ns20:Coord"
+            languageSpecificType="java:com.siteco.Coord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="Coord" regenerateElement="true"/>
+        <typeMapping xmlns:ns21="http://siteco.com" encodingStyle=""
+            qname="ns21:NormComune2Record"
+            languageSpecificType="java:com.siteco.NormComune2Record"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormComune2Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns22="http://siteco.com" encodingStyle=""
+            qname="ns22:ArrayOfNormProvinciaRecord"
+            languageSpecificType="java:com.siteco.ArrayOfNormProvinciaRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormProvinciaRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns23="http://siteco.com" encodingStyle=""
+            qname="ns23:NormIndirizzo2Record"
+            languageSpecificType="java:com.siteco.NormIndirizzo2Record"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormIndirizzo2Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns24="http://siteco.com" encodingStyle=""
+            qname="ns24:ArrayOfNormComune2Record"
+            languageSpecificType="java:com.siteco.ArrayOfNormComune2Record"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormComune2Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns25="http://siteco.com" encodingStyle=""
+            qname="ns25:NormIndirizzoRecord"
+            languageSpecificType="java:com.siteco.NormIndirizzoRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormIndirizzoRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns26="http://siteco.com" encodingStyle=""
+            qname="ns26:NormIndirizzo1Record"
+            languageSpecificType="java:com.siteco.NormIndirizzo1Record"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormIndirizzo1Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns27="http://siteco.com" encodingStyle=""
+            qname="ns27:NormComune1Record"
+            languageSpecificType="java:com.siteco.NormComune1Record"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="NormComune1Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns28="http://siteco.com" encodingStyle=""
+            qname="ns28:GenEnvelope"
+            languageSpecificType="java:com.siteco.GenEnvelope"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="GenEnvelope" regenerateElement="true"/>
+        <typeMapping xmlns:ns29="http://siteco.com" encodingStyle=""
+            qname="ns29:ArrayOfNormStradarioRecord"
+            languageSpecificType="java:com.siteco.ArrayOfNormStradarioRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormStradarioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns30="http://siteco.com" encodingStyle=""
+            qname="ns30:ArrayOfGenLayer"
+            languageSpecificType="java:com.siteco.ArrayOfGenLayer"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfGenLayer" regenerateElement="true"/>
+        <typeMapping xmlns:ns31="http://siteco.com" encodingStyle=""
+            qname="ns31:GenMap"
+            languageSpecificType="java:com.siteco.GenMap"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="GenMap" regenerateElement="true"/>
+        <typeMapping xmlns:ns32="http://siteco.com" encodingStyle=""
+            qname="ns32:ArrayOfArrayOfString"
+            languageSpecificType="java:com.siteco.ArrayOfArrayOfString"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfArrayOfString" regenerateElement="true"/>
+        <typeMapping xmlns:ns33="http://siteco.com" encodingStyle=""
+            qname="ns33:ArrayOfNormInfoEntitaStradarioRecord"
+            languageSpecificType="java:com.siteco.ArrayOfNormInfoEntitaStradarioRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormInfoEntitaStradarioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns34="http://siteco.com" encodingStyle=""
+            qname="ns34:Simbolo"
+            languageSpecificType="java:com.siteco.Simbolo"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="Simbolo" regenerateElement="true"/>
+        <typeMapping xmlns:ns35="http://siteco.com" encodingStyle=""
+            qname="ns35:ArrayOfObjsInLayer2"
+            languageSpecificType="java:com.siteco.ArrayOfObjsInLayer2"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfObjsInLayer2" regenerateElement="true"/>
+        <typeMapping xmlns:ns36="http://siteco.com" encodingStyle=""
+            qname="ns36:GenLayer"
+            languageSpecificType="java:com.siteco.GenLayer"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="GenLayer" regenerateElement="true"/>
+        <typeMapping xmlns:ns37="http://siteco.com" encodingStyle=""
+            qname="ns37:ObjsInLayer"
+            languageSpecificType="java:com.siteco.ObjsInLayer"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ObjsInLayer" regenerateElement="true"/>
+        <typeMapping xmlns:ns38="http://siteco.com" encodingStyle=""
+            qname="ns38:ArrayOfNormIndirizzoRecord"
+            languageSpecificType="java:com.siteco.ArrayOfNormIndirizzoRecord"
+            serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+            name="ArrayOfNormIndirizzoRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns39="http://siteco.com" encodingStyle=""
+            qname="ns39:ArrayOfNormComune1Record"
+            languageSpecificType="java:com.siteco.NormComune1Record[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormComune1Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns40="http://siteco.com" encodingStyle=""
+            qname="ns40:ArrayOfNormIncrocioRecord"
+            languageSpecificType="java:com.siteco.NormIncrocioRecord[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormIncrocioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns41="http://siteco.com" encodingStyle=""
+            qname="ns41:ArrayOfNormIndirizzo1Record"
+            languageSpecificType="java:com.siteco.NormIndirizzo1Record[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormIndirizzo1Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns42="http://siteco.com" encodingStyle=""
+            qname="ns42:ArrayOfObjsInLayer"
+            languageSpecificType="java:com.siteco.ObjsInLayer[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfObjsInLayer" regenerateElement="true"/>
+        <typeMapping xmlns:ns43="http://siteco.com" encodingStyle=""
+            qname="ns43:ArrayOfNormInfoEntitaStradarioRecord"
+            languageSpecificType="java:com.siteco.NormInfoEntitaStradarioRecord[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormInfoEntitaStradarioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns44="http://siteco.com" encodingStyle=""
+            qname="ns44:ArrayOfNormIndirizzo2Record"
+            languageSpecificType="java:com.siteco.NormIndirizzo2Record[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormIndirizzo2Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns45="http://siteco.com" encodingStyle=""
+            qname="ns45:ArrayOfNormStradarioRecord"
+            languageSpecificType="java:com.siteco.NormStradarioRecord[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormStradarioRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns46="http://siteco.com" encodingStyle=""
+            qname="ns46:ArrayOfString"
+            languageSpecificType="java:java.lang.String[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfString" regenerateElement="true"/>
+        <typeMapping xmlns:ns47="http://siteco.com" encodingStyle=""
+            qname="ns47:ArrayOfObjsInLayer2"
+            languageSpecificType="java:com.siteco.ObjsInLayer2[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfObjsInLayer2" regenerateElement="true"/>
+        <typeMapping xmlns:ns48="http://siteco.com" encodingStyle=""
+            qname="ns48:ArrayOfGenLayer"
+            languageSpecificType="java:com.siteco.GenLayer[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfGenLayer" regenerateElement="true"/>
+        <typeMapping xmlns:ns49="http://siteco.com" encodingStyle=""
+            qname="ns49:ArrayOfObjsInLayer3"
+            languageSpecificType="java:com.siteco.ObjsInLayer3[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfObjsInLayer3" regenerateElement="true"/>
+        <typeMapping xmlns:ns50="http://siteco.com" encodingStyle=""
+            qname="ns50:ArrayOfNormComune2Record"
+            languageSpecificType="java:com.siteco.NormComune2Record[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormComune2Record" regenerateElement="true"/>
+        <typeMapping xmlns:ns51="http://siteco.com" encodingStyle=""
+            qname="ns51:ArrayOfSimbolo"
+            languageSpecificType="java:com.siteco.Simbolo[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfSimbolo" regenerateElement="true"/>
+        <typeMapping xmlns:ns52="http://siteco.com" encodingStyle=""
+            qname="ns52:ArrayOfNormProvinciaRecord"
+            languageSpecificType="java:com.siteco.NormProvinciaRecord[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormProvinciaRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns53="http://siteco.com" encodingStyle=""
+            qname="ns53:ArrayOfint" languageSpecificType="java:int[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfint" regenerateElement="true"/>
+        <typeMapping xmlns:ns54="http://siteco.com" encodingStyle=""
+            qname="ns54:ArrayOfNormIndirizzoRecord"
+            languageSpecificType="java:com.siteco.NormIndirizzoRecord[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfNormIndirizzoRecord" regenerateElement="true"/>
+        <typeMapping xmlns:ns55="http://siteco.com" encodingStyle=""
+            qname="ns55:ArrayOfArrayOfString"
+            languageSpecificType="java:com.siteco.ArrayOfString[]"
+            serializer="org.apache.axis.encoding.ser.ArraySerializerFactory"
+            deserializer="org.apache.axis.encoding.ser.ArrayDeserializerFactory"
+            name="ArrayOfArrayOfString" regenerateElement="true"/>
+    </service>
+</deployment>
